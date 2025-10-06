@@ -1,0 +1,488 @@
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Check,
+  BarChart3,
+  Users,
+  ClipboardList,
+  TrendingUp,
+  Clock,
+  Zap,
+  Palette,
+  Sparkles,
+  ImageIcon,
+  Type,
+} from "lucide-react"
+import Image from "next/image"
+
+export default function Home() {
+  return (
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <header className="container mx-auto px-4 py-16 sm:py-20 md:py-32">
+        <div className="max-w-5xl mx-auto text-center space-y-6 sm:space-y-8">
+          <div className="inline-block">
+            <Image
+              src="/images/design-mode/main_logo.jpeg"
+              alt="Studio Barbershop Pro - Sistema de gestión profesional para barberías"
+              width={180}
+              height={180}
+              className="mx-auto mb-6 sm:mb-8 w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44"
+              priority
+            />
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-balance leading-tight">
+            Gestiona las Operaciones de Tu Barbería con Eficiencia Total
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto text-pretty leading-relaxed">
+            Sistema profesional de gestión operativa para barberías. Coordina a tu equipo, asigna servicios en tiempo
+            real, genera reportes automáticos y controla cada detalle de tu negocio desde una sola plataforma. Recupera
+            horas de trabajo administrativo y enfócate en lo que realmente importa: tus clientes.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4">
+            <Button
+              size="lg"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto"
+            >
+              Solicitar Demostración
+            </Button>
+          </div>
+        </div>
+      </header>
+
+      {/* Stats Grid */}
+      <section className="border-y border-border" aria-label="Estadísticas de eficiencia">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
+            <div className="p-6 sm:p-8 md:p-12 text-center sm:text-left">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-primary">5hrs</div>
+              <div className="text-muted-foreground text-sm sm:text-base">
+                Ahorradas por semana en gestión administrativa
+              </div>
+            </div>
+            <div className="p-6 sm:p-8 md:p-12 text-center sm:text-left">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-primary">100%</div>
+              <div className="text-muted-foreground text-sm sm:text-base">Visibilidad operativa en tiempo real</div>
+            </div>
+            <div className="p-6 sm:p-8 md:p-12 text-center sm:text-left sm:col-span-2 lg:col-span-1">
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2 text-primary">0</div>
+              <div className="text-muted-foreground text-sm sm:text-base">Papeles, confusión y errores manuales</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="container mx-auto px-4 py-16 sm:py-20 md:py-32" aria-labelledby="features-heading">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 id="features-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-balance">
+            Control Operativo Completo en Tiempo Real
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            Software diseñado específicamente para simplificar la gestión diaria de tu barbería
+          </p>
+        </div>
+
+        <div className="grid gap-12 sm:gap-16 md:gap-20">
+          {/* Feature 1 - Service Management */}
+          <article className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium">
+                <ClipboardList className="w-4 h-4" />
+                Gestión de Servicios en Vivo
+              </div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">Coordina Servicios al Instante</h3>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                ¿Pierdes tiempo anotando servicios en papel o tratando de recordar quién está atendiendo a cada cliente?
+                Con nuestro sistema de gestión para barberías, registra cada servicio en segundos, asigna barberos
+                específicos y mantén un seguimiento preciso de todo lo que sucede en tu local. Cada servicio queda
+                documentado con hora, barbero y precio, eliminando confusiones y mejorando la organización de tu equipo.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Registra servicios de barbería en tiempo real desde cualquier dispositivo
+                  </span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Asigna servicios específicos a cada barbero según su especialidad
+                  </span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Visualiza el progreso del día y servicios completados al instante
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="order-first md:order-last">
+              <Card className="overflow-hidden border-border bg-card">
+                <CardContent className="p-0">
+                  <Image
+                    src="/images/design-mode/home_big.png"
+                    alt="Interfaz de gestión de servicios de barbería en tiempo real mostrando selección de servicios como corte moderno, corte clásico, barba y marcado con precios"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </article>
+
+          {/* Feature 2 - Reports & Analytics */}
+          <article className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium">
+                <BarChart3 className="w-4 h-4" />
+                Reportes Operativos Inteligentes
+              </div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">Toma Decisiones Basadas en Datos Reales</h3>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Olvídate de las hojas de cálculo y los cálculos manuales. Accede a reportes detallados y analytics que
+                te muestran exactamente cuánto ha generado cada barbero, qué servicios son los más solicitados y en qué
+                horarios tu negocio es más productivo. Identifica oportunidades de mejora, reconoce a tu equipo más
+                eficiente y optimiza tus recursos para maximizar ganancias. Todo actualizado en tiempo real, sin
+                esfuerzo adicional.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Consulta ingresos diarios, semanales y mensuales por barbero
+                  </span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Identifica servicios más rentables y horarios pico de actividad
+                  </span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Gráficos visuales que simplifican el análisis de tu negocio
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <Card className="overflow-hidden border-border bg-card">
+                <CardContent className="p-0">
+                  <Image
+                    src="/images/design-mode/reports_large_scree.png"
+                    alt="Dashboard de reportes y analytics para barberías mostrando ingresos diarios, distribución de ganancias, servicios por tipo y rendimiento por hora con gráficos interactivos"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </article>
+
+          {/* Feature 3 - Team Management */}
+          <article className="grid md:grid-cols-2 gap-6 sm:gap-8 items-center">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs sm:text-sm font-medium">
+                <Users className="w-4 h-4" />
+                Acceso Seguro para Todo el Equipo
+              </div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">Tu Equipo Conectado y Coordinado</h3>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Dale a cada miembro de tu equipo acceso personalizado según su rol en la gestión de personal. Los
+                barberos pueden registrar sus propios servicios y consultar su rendimiento, mientras tú como
+                administrador mantienes el control total sobre la información sensible del negocio. Sistema de
+                autenticación seguro con códigos de verificación por correo electrónico que garantiza que solo personas
+                autorizadas accedan a tu información. Sin contraseñas complicadas, solo simplicidad y seguridad.
+              </p>
+              <ul className="space-y-3">
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Roles diferenciados: Administrador y Barbero con permisos específicos
+                  </span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Autenticación segura con códigos de verificación por email
+                  </span>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                  <span className="text-sm sm:text-base text-muted-foreground">
+                    Cada barbero ve su propio rendimiento y servicios realizados
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div className="order-first md:order-last">
+              <Card className="overflow-hidden border-border bg-card">
+                <CardContent className="p-0">
+                  <Image
+                    src="/images/design-mode/login_with_code.png"
+                    alt="Sistema de autenticación seguro para barbería con verificación por código de 6 dígitos enviado por correo electrónico"
+                    width={800}
+                    height={600}
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* Benefits Section */}
+      <section className="border-y border-border bg-secondary/30" aria-labelledby="benefits-heading">
+        <div className="container mx-auto px-4 py-16 sm:py-20 md:py-32">
+          <div className="max-w-4xl mx-auto">
+            <h2 id="benefits-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold mb-12 sm:mb-16 text-center">
+              Beneficios que Transforman Tu Día a Día
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
+              <Card className="border-border bg-card">
+                <CardContent className="p-6 sm:p-8 space-y-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Clock className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold">Ahorra Horas de Trabajo Administrativo</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Elimina el papeleo, las anotaciones manuales y los cálculos de fin de día. Lo que antes te tomaba
+                    horas en gestión administrativa, ahora lo haces en minutos. Dedica ese tiempo a atender más clientes
+                    o simplemente a descansar.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardContent className="p-6 sm:p-8 space-y-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Users className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold">Gestión Inteligente de Personal</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Asigna roles, controla accesos y define especialidades para cada barbero. Gestiona múltiples
+                    ubicaciones desde un solo lugar y mantén a tu equipo organizado y motivado con métricas claras de
+                    rendimiento.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardContent className="p-6 sm:p-8 space-y-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <Zap className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold">Operaciones Más Rápidas y Eficientes</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Registra servicios en segundos, consulta información al instante y coordina a tu equipo sin
+                    complicaciones. La velocidad de operación se traduce en más clientes atendidos y mayores ingresos
+                    para tu barbería.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="border-border bg-card">
+                <CardContent className="p-6 sm:p-8 space-y-4">
+                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <TrendingUp className="w-6 h-6 text-primary" />
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold">Decisiones Estratégicas Informadas</h3>
+                  <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                    Accede a métricas de rendimiento en tiempo real, identifica tendencias y optimiza precios y
+                    servicios. Conoce exactamente qué funciona en tu negocio y qué necesita mejorar para crecer de forma
+                    sostenible.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customization Section */}
+      <section className="container mx-auto px-4 py-16 sm:py-20 md:py-32" aria-labelledby="customization-heading">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16 space-y-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              <Sparkles className="w-4 h-4" />
+              Personalización Total
+            </div>
+            <h2 id="customization-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
+              Tu Marca, Tu Identidad, Tu App
+            </h2>
+            <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+              Cada barbería es única, y tu aplicación también debe serlo. Personaliza completamente el sistema con tu
+              marca, colores corporativos, logo y nombre de tu negocio. Ofrece a tu equipo y clientes una experiencia
+              100% alineada con tu identidad visual, sin comprometer la funcionalidad profesional que necesitas.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <Card className="border-border bg-card hover:bg-secondary/50 transition-colors">
+              <CardContent className="p-6 space-y-4 text-center">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
+                  <ImageIcon className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold">Logo Personalizado</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Integra el logo de tu barbería en toda la aplicación para reforzar tu identidad de marca
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:bg-secondary/50 transition-colors">
+              <CardContent className="p-6 space-y-4 text-center">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
+                  <Palette className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold">Colores Corporativos</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Adapta la paleta de colores completa para que coincida perfectamente con tu branding
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:bg-secondary/50 transition-colors">
+              <CardContent className="p-6 space-y-4 text-center">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
+                  <Type className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold">Nombre de Tu Negocio</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Personaliza el nombre de la aplicación con el de tu barbería en todas las pantallas
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-border bg-card hover:bg-secondary/50 transition-colors">
+              <CardContent className="p-6 space-y-4 text-center">
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto">
+                  <Sparkles className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="text-lg font-bold">Elementos Visuales</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Ajusta tipografías, iconos y otros detalles visuales según tus preferencias
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <Card className="border-border bg-gradient-to-br from-secondary/50 to-secondary/20">
+            <CardContent className="p-8 sm:p-12">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="space-y-6">
+                  <h3 className="text-2xl sm:text-3xl font-bold">Solución White-Label Completa</h3>
+                  <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                    No es solo un software genérico. Es TU plataforma de gestión con tu identidad visual completa.
+                    Perfecto para barberías que quieren proyectar profesionalismo y coherencia de marca en cada
+                    interacción con su equipo.
+                  </p>
+                  <ul className="space-y-3">
+                    <li className="flex gap-3 items-start">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-muted-foreground">
+                        Personalización completa sin costos adicionales
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-muted-foreground">
+                        Implementación de tu branding en menos de 24 horas
+                      </span>
+                    </li>
+                    <li className="flex gap-3 items-start">
+                      <Check className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                      <span className="text-sm sm:text-base text-muted-foreground">
+                        Actualizaciones de diseño cuando lo necesites
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+                <div className="order-first md:order-last">
+                  <div className="relative aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 p-8 flex items-center justify-center">
+                    <div className="text-center space-y-4">
+                      <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6">
+                        <Palette className="w-12 h-12 text-primary" />
+                      </div>
+                      <p className="text-lg font-semibold">Tu Logo Aquí</p>
+                      <p className="text-sm text-muted-foreground px-4">
+                        Visualiza tu marca en cada pantalla de la aplicación
+                      </p>
+                      <div className="flex gap-2 justify-center pt-4">
+                        <div className="w-8 h-8 rounded-full bg-red-500/80"></div>
+                        <div className="w-8 h-8 rounded-full bg-blue-500/80"></div>
+                        <div className="w-8 h-8 rounded-full bg-amber-500/80"></div>
+                        <div className="w-8 h-8 rounded-full bg-emerald-500/80"></div>
+                      </div>
+                      <p className="text-xs text-muted-foreground">Tus colores corporativos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="container mx-auto px-4 py-16 sm:py-20 md:py-32" aria-labelledby="cta-heading">
+        <div className="max-w-4xl mx-auto text-center space-y-6 sm:space-y-8">
+          <h2 id="cta-heading" className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance">
+            Simplifica tus operaciones y multiplica tu eficiencia
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+            Únete a las barberías que ya están ahorrando tiempo, optimizando recursos y aumentando sus ingresos con
+            nuestra plataforma de gestión operativa profesional.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4">
+            <Button
+              size="lg"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto"
+            >
+              Solicitar Demostración Gratis
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-muted-foreground/20 hover:bg-secondary bg-transparent w-full sm:w-auto"
+            >
+              Hablar con un Asesor
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-border">
+        <div className="container mx-auto px-4 py-8 sm:py-12">
+          <div className="text-center space-y-4">
+            <p className="text-sm sm:text-base text-muted-foreground">
+              Desarrollo por:{" "}
+              <a
+                href="https://geovannycordero.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-foreground hover:text-primary transition-colors font-medium"
+              >
+                geovannycordero.com
+              </a>
+            </p>
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              © 2025 Studio Barbershop Pro. Sistema de gestión para barberías. Todos los derechos reservados.
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  )
+}

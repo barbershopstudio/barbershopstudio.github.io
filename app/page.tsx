@@ -12,6 +12,8 @@ import {
   Sparkles,
   ImageIcon,
   Type,
+  ExternalLink,
+  Quote,
 } from "lucide-react"
 import Image from "next/image"
 
@@ -431,6 +433,211 @@ export default function Home() {
               </div>
             </CardContent>
           </Card>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section
+        className="border-y border-border bg-secondary/30 overflow-hidden"
+        aria-labelledby="testimonials-heading"
+      >
+        <div className="container mx-auto px-4 py-16 sm:py-20 md:py-32">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12 sm:mb-16 space-y-4">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+                <Quote className="w-4 h-4" />
+                Testimonios de Clientes
+              </div>
+              <h2 id="testimonials-heading" className="text-3xl sm:text-4xl md:text-5xl font-bold text-balance">
+                Barberías que Confían en Nosotros
+              </h2>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto px-4 leading-relaxed">
+                Descubre cómo otras barberías han transformado sus operaciones y mejorado su eficiencia con nuestro
+                sistema de gestión profesional
+              </p>
+            </div>
+
+            <div className="relative">
+              {/* Gradient overlays for fade effect */}
+              <div className="absolute left-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-r from-secondary/30 to-transparent z-10 pointer-events-none" />
+              <div className="absolute right-0 top-0 bottom-0 w-20 sm:w-32 bg-gradient-to-l from-secondary/30 to-transparent z-10 pointer-events-none" />
+
+              {/* Scrolling container */}
+              <div className="flex animate-scroll-left">
+                {/* First set of testimonials */}
+                {[
+                  {
+                    initials: "CB",
+                    color: "from-primary/20 to-primary/5 border-primary/20 text-primary",
+                    quote:
+                      "Desde que implementamos este sistema, hemos reducido el tiempo de gestión administrativa en un 70%. Ahora puedo enfocarme en atender a mis clientes y mi equipo está más organizado que nunca.",
+                    name: "Classic Barber Studio",
+                    location: "San José, Costa Rica",
+                    url: "https://example.com",
+                  },
+                  {
+                    initials: "EB",
+                    color: "from-blue-500/20 to-blue-500/5 border-blue-500/20 text-blue-500",
+                    quote:
+                      "La facilidad de uso es impresionante. Mi equipo aprendió a usar el sistema en menos de una hora. Los reportes en tiempo real nos han ayudado a identificar nuestros servicios más rentables.",
+                    name: "Elite Barbershop",
+                    location: "Heredia, Costa Rica",
+                    url: "https://example.com",
+                  },
+                  {
+                    initials: "UB",
+                    color: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-500",
+                    quote:
+                      "Gestionar tres ubicaciones era un caos antes de este sistema. Ahora puedo ver en tiempo real qué está pasando en cada local. La personalización con nuestro logo le da un toque muy profesional.",
+                    name: "Urban Barber Co.",
+                    location: "Cartago, Costa Rica",
+                    url: "https://example.com",
+                  },
+                  {
+                    initials: "KB",
+                    color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-500",
+                    quote:
+                      "Este sistema me permite mostrarle a cada barbero su rendimiento diario y reconocer a los más productivos. La transparencia ha mejorado la moral y la eficiencia del equipo.",
+                    name: "Kings Barbershop",
+                    location: "Alajuela, Costa Rica",
+                    url: "https://example.com",
+                  },
+                ].map((testimonial, index) => (
+                  <Card
+                    key={`first-${index}`}
+                    className="flex-shrink-0 w-[320px] sm:w-[380px] mx-3 border-border bg-card hover:bg-secondary/50 transition-all duration-300 group"
+                  >
+                    <CardContent className="p-5 sm:p-6 space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div
+                          className={`w-14 h-14 rounded-lg bg-gradient-to-br ${testimonial.color.split(" ").slice(0, 3).join(" ")} flex items-center justify-center`}
+                        >
+                          <div className={`text-lg font-bold ${testimonial.color.split(" ").slice(3).join(" ")}`}>
+                            {testimonial.initials}
+                          </div>
+                        </div>
+                        <Quote className="w-6 h-6 text-primary/20" />
+                      </div>
+                      <blockquote className="text-sm sm:text-base text-muted-foreground leading-relaxed line-clamp-4">
+                        {testimonial.quote}
+                      </blockquote>
+                      <div className="flex items-center justify-between pt-3 border-t border-border">
+                        <div>
+                          <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
+                          <p className="text-xs text-muted-foreground">{testimonial.location}</p>
+                        </div>
+                        <a
+                          href={testimonial.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-primary/80 transition-colors"
+                          aria-label={`Visitar sitio web de ${testimonial.name}`}
+                        >
+                          Visitar
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+
+                {/* Duplicate set for seamless loop */}
+                {[
+                  {
+                    initials: "CB",
+                    color: "from-primary/20 to-primary/5 border-primary/20 text-primary",
+                    quote:
+                      "Desde que implementamos este sistema, hemos reducido el tiempo de gestión administrativa en un 70%. Ahora puedo enfocarme en atender a mis clientes y mi equipo está más organizado que nunca.",
+                    name: "Classic Barber Studio",
+                    location: "San José, Costa Rica",
+                    url: "https://example.com",
+                  },
+                  {
+                    initials: "EB",
+                    color: "from-blue-500/20 to-blue-500/5 border-blue-500/20 text-blue-500",
+                    quote:
+                      "La facilidad de uso es impresionante. Mi equipo aprendió a usar el sistema en menos de una hora. Los reportes en tiempo real nos han ayudado a identificar nuestros servicios más rentables.",
+                    name: "Elite Barbershop",
+                    location: "Heredia, Costa Rica",
+                    url: "https://example.com",
+                  },
+                  {
+                    initials: "UB",
+                    color: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-500",
+                    quote:
+                      "Gestionar tres ubicaciones era un caos antes de este sistema. Ahora puedo ver en tiempo real qué está pasando en cada local. La personalización con nuestro logo le da un toque muy profesional.",
+                    name: "Urban Barber Co.",
+                    location: "Cartago, Costa Rica",
+                    url: "https://example.com",
+                  },
+                  {
+                    initials: "KB",
+                    color: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-500",
+                    quote:
+                      "Este sistema me permite mostrarle a cada barbero su rendimiento diario y reconocer a los más productivos. La transparencia ha mejorado la moral y la eficiencia del equipo.",
+                    name: "Kings Barbershop",
+                    location: "Alajuela, Costa Rica",
+                    url: "https://example.com",
+                  },
+                ].map((testimonial, index) => (
+                  <Card
+                    key={`second-${index}`}
+                    className="flex-shrink-0 w-[320px] sm:w-[380px] mx-3 border-border bg-card hover:bg-secondary/50 transition-all duration-300 group"
+                  >
+                    <CardContent className="p-5 sm:p-6 space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div
+                          className={`w-14 h-14 rounded-lg bg-gradient-to-br ${testimonial.color.split(" ").slice(0, 3).join(" ")} flex items-center justify-center`}
+                        >
+                          <div className={`text-lg font-bold ${testimonial.color.split(" ").slice(3).join(" ")}`}>
+                            {testimonial.initials}
+                          </div>
+                        </div>
+                        <Quote className="w-6 h-6 text-primary/20" />
+                      </div>
+                      <blockquote className="text-sm sm:text-base text-muted-foreground leading-relaxed line-clamp-4">
+                        {testimonial.quote}
+                      </blockquote>
+                      <div className="flex items-center justify-between pt-3 border-t border-border">
+                        <div>
+                          <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
+                          <p className="text-xs text-muted-foreground">{testimonial.location}</p>
+                        </div>
+                        <a
+                          href={testimonial.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-primary/80 transition-colors"
+                          aria-label={`Visitar sitio web de ${testimonial.name}`}
+                        >
+                          Visitar
+                          <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+
+            {/* Trust indicators */}
+            <div className="mt-12 sm:mt-16 text-center">
+              <div className="inline-flex flex-wrap items-center justify-center gap-6 sm:gap-8 text-muted-foreground">
+                <div className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span className="text-sm sm:text-base">Implementación en 24-48 horas</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span className="text-sm sm:text-base">Soporte técnico incluido</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="w-5 h-5 text-primary" />
+                  <span className="text-sm sm:text-base">Capacitación personalizada</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

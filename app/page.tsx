@@ -1,3 +1,5 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import {
@@ -12,8 +14,9 @@ import {
   Sparkles,
   ImageIcon,
   Type,
-  ExternalLink,
-  Quote,
+  MessageCircle,
+  Mail,
+  Calendar,
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -53,6 +56,54 @@ export default function Home() {
     inLanguage: 'es-CR',
   };
 
+  // Email functions
+  const sendDemoRequest = () => {
+    const subject = encodeURIComponent(
+      'Solicitud de Demostración - Studio Barbershop Pro'
+    );
+    const body = encodeURIComponent(`Hola,
+
+Me interesa solicitar una demostración del sistema Studio Barbershop Pro para mi barbería.
+
+Por favor, contácteme para coordinar una demostración personalizada.
+
+Este es mi número de whatsapp: [incluir número de whatsapp]
+
+Gracias.`);
+    window.open(
+      `mailto:contact.barbershop.studio@gmail.com?subject=${subject}&body=${body}`
+    );
+  };
+
+  // Contact functions
+  const openWhatsApp = () => {
+    const message = encodeURIComponent(
+      'Hola, me interesa conocer más sobre Studio Barbershop Pro para mi barbería.'
+    );
+    window.open(`https://wa.me/50688527576?text=${message}`, '_blank');
+  };
+
+  const openEmail = () => {
+    const subject = encodeURIComponent('Consulta sobre Studio Barbershop Pro');
+    const body = encodeURIComponent(`Hola,
+
+Me interesa conocer más sobre el sistema Studio Barbershop Pro para mi barbería.
+
+Por favor, contácteme para coordinar una demostración.
+
+Gracias.`);
+    window.open(
+      `mailto:contact.barbershop.studio@gmail.com?subject=${subject}&body=${body}`
+    );
+  };
+
+  const openCalendly = () => {
+    window.open(
+      'https://calendly.com/contact-barbershop-studio/30min',
+      '_blank'
+    );
+  };
+
   return (
     <>
       <script
@@ -87,6 +138,7 @@ export default function Home() {
               <Button
                 size='lg'
                 className='text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto'
+                onClick={sendDemoRequest}
               >
                 Solicitar Demostración
               </Button>
@@ -788,37 +840,91 @@ export default function Home() {
           </div>
         </section> */}
 
-        {/* Final CTA */}
+        {/* Contact Section */}
         <section
-          className='container mx-auto px-4 py-16 sm:py-20 md:py-32'
-          aria-labelledby='cta-heading'
+          className='border-y border-border bg-secondary/30'
+          aria-labelledby='contact-heading'
         >
-          <div className='max-w-4xl mx-auto text-center space-y-6 sm:space-y-8'>
-            <h2
-              id='cta-heading'
-              className='text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-balance'
-            >
-              Simplifica tus operaciones y multiplica tu eficiencia
-            </h2>
-            <p className='text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4'>
-              Únete a las barberías que ya están ahorrando tiempo, optimizando
-              recursos y aumentando sus ingresos con nuestra plataforma de
-              gestión operativa profesional.
-            </p>
-            <div className='flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center pt-4'>
-              <Button
-                size='lg'
-                className='text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 bg-primary hover:bg-primary/90 w-full sm:w-auto'
-              >
-                Solicitar Demostración Gratis
-              </Button>
-              <Button
-                size='lg'
-                variant='outline'
-                className='text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6 border-muted-foreground/20 hover:bg-secondary bg-transparent w-full sm:w-auto'
-              >
-                Hablar con un Asesor
-              </Button>
+          <div className='container mx-auto px-4 py-16 sm:py-20 md:py-32'>
+            <div className='max-w-4xl mx-auto'>
+              <div className='text-center mb-12 sm:mb-16'>
+                <h2
+                  id='contact-heading'
+                  className='text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4 text-balance'
+                >
+                  ¿Listo para Transformar tu Barbería?
+                </h2>
+                <p className='text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4'>
+                  Contáctanos hoy mismo y descubre cómo Studio Barbershop Pro
+                  puede revolucionar las operaciones de tu negocio
+                </p>
+              </div>
+
+              <div className='grid sm:grid-cols-3 gap-6 sm:gap-8'>
+                {/* WhatsApp */}
+                <Card
+                  className='border-border bg-card hover:bg-secondary/50 transition-colors cursor-pointer group'
+                  onClick={openWhatsApp}
+                >
+                  <CardContent className='p-6 sm:p-8 space-y-4 text-center'>
+                    <div className='w-16 h-16 rounded-xl bg-green-500/10 flex items-center justify-center mx-auto group-hover:bg-green-500/20 transition-colors'>
+                      <MessageCircle className='w-8 h-8 text-green-500' />
+                    </div>
+                    <h3 className='text-xl font-bold'>WhatsApp</h3>
+                    <p className='text-sm text-muted-foreground leading-relaxed'>
+                      Chatea con nosotros directamente
+                    </p>
+                    <p className='text-sm font-medium text-green-500'>
+                      +506 8852-7576
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Email */}
+                <Card
+                  className='border-border bg-card hover:bg-secondary/50 transition-colors cursor-pointer group'
+                  onClick={openEmail}
+                >
+                  <CardContent className='p-6 sm:p-8 space-y-4 text-center'>
+                    <div className='w-16 h-16 rounded-xl bg-blue-500/10 flex items-center justify-center mx-auto group-hover:bg-blue-500/20 transition-colors'>
+                      <Mail className='w-8 h-8 text-blue-500' />
+                    </div>
+                    <h3 className='text-xl font-bold'>Email</h3>
+                    <p className='text-sm text-muted-foreground leading-relaxed'>
+                      Envíanos un mensaje detallado
+                    </p>
+                    <p className='text-sm font-medium text-blue-500 break-all'>
+                      contact.barbershop.studio@gmail.com
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Calendly */}
+                <Card
+                  className='border-border bg-card hover:bg-secondary/50 transition-colors cursor-pointer group'
+                  onClick={openCalendly}
+                >
+                  <CardContent className='p-6 sm:p-8 space-y-4 text-center'>
+                    <div className='w-16 h-16 rounded-xl bg-purple-500/10 flex items-center justify-center mx-auto group-hover:bg-purple-500/20 transition-colors'>
+                      <Calendar className='w-8 h-8 text-purple-500' />
+                    </div>
+                    <h3 className='text-xl font-bold'>Agenda una Reunión</h3>
+                    <p className='text-sm text-muted-foreground leading-relaxed'>
+                      Reserva una cita de 30 minutos
+                    </p>
+                    <p className='text-sm font-medium text-purple-500'>
+                      Calendly
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className='mt-12 text-center'>
+                <p className='text-sm text-muted-foreground'>
+                  <strong>Tiempo de respuesta:</strong> Menos de 3 horas en
+                  WhatsApp • 24 horas por email
+                </p>
+              </div>
             </div>
           </div>
         </section>

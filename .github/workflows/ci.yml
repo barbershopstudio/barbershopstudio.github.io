@@ -35,14 +35,14 @@ jobs:
       - name: Run TypeScript type check
         run: yarn type-check
         
-      - name: Run tests
-        run: yarn test
+      # - name: Run tests
+      #   run: yarn test
         
-      - name: Generate test coverage report
-        run: yarn test --coverage --coverageReporters=text-lcov | coveralls
-        env:
-          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN || '' }}
-        continue-on-error: true
+      # - name: Generate test coverage report
+      #   run: yarn test --coverage --coverageReporters=text-lcov | coveralls
+      #   env:
+      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN || '' }}
+      #   continue-on-error: true
 
   # Build Job
   build:

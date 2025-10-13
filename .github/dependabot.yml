@@ -1,0 +1,93 @@
+# Reference: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+
+version: 2
+updates:
+  # Enable version updates for npm dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 10
+    reviewers:
+      - "gehovah"
+    assignees:
+      - "gehovah"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "javascript"
+    versioning-strategy: "increase-if-necessary"
+    ignore:
+      # Ignore major version updates for critical dependencies
+      - dependency-name: "next"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "react-dom"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@prisma/client"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "prisma"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "next-auth"
+        update-types: ["version-update:semver-major"]
+      # Ignore packages with "latest" version tags
+      - dependency-name: "@radix-ui/react-dialog"
+      - dependency-name: "@radix-ui/react-label"
+      - dependency-name: "@radix-ui/react-select"
+      - dependency-name: "@radix-ui/react-slot"
+      - dependency-name: "@remix-run/react"
+      - dependency-name: "@sveltejs/kit"
+      - dependency-name: "next-themes"
+      - dependency-name: "recharts"
+      - dependency-name: "svelte"
+      - dependency-name: "vue"
+      - dependency-name: "vue-router"
+
+  # Enable version updates for Docker dependencies
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "gehovah"
+    assignees:
+      - "gehovah"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "docker"
+
+  # Enable version updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "gehovah"
+    assignees:
+      - "gehovah"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
+    labels:
+      - "dependencies"
+      - "github-actions"

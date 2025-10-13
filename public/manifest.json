@@ -1,0 +1,32 @@
+{
+  "name": "Studio Barbershop Pro - Sistema de Gestión para Barberías",
+  "short_name": "Studio Barbershop Pro",
+  "description": "Plataforma profesional de gestión operativa para barberías. Coordina servicios en tiempo real, gestiona tu equipo y genera reportes automáticos.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/images/design-mode/main_logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/design-mode/main_logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["business", "productivity", "utilities"],
+  "lang": "es-CR",
+  "dir": "ltr"
+}

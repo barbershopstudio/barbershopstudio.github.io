@@ -36,6 +36,7 @@ This landing page serves as the marketing frontend for **Studio Barbershop Pro**
 ## ✨ Features
 
 ### Landing Page Features
+
 - **Hero Section**: Compelling headline with clear value proposition
 - **Feature Showcase**: Interactive sections highlighting key system capabilities
 - **Statistics Display**: Real-time metrics and benefits visualization
@@ -44,6 +45,7 @@ This landing page serves as the marketing frontend for **Studio Barbershop Pro**
 - **Responsive Design**: Mobile-first approach with seamless cross-device experience
 
 ### Technical Features
+
 - **Next.js 15**: Latest React framework with App Router
 - **TypeScript**: Type-safe development
 - **Tailwind CSS**: Utility-first CSS framework
@@ -86,12 +88,14 @@ git --version
 ## 🚀 Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/yourusername/barber-shop-studio-landing-page-v0.git
    cd barber-shop-studio-landing-page-v0
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    # or
@@ -201,23 +205,27 @@ barber-shop-studio-landing-page-v0/
 ## 🎨 Key Features Showcased
 
 ### 1. Service Management
+
 - Real-time service coordination
 - Barber assignment system
 - Service tracking and documentation
 
 ### 2. Reports & Analytics
+
 - Daily, weekly, and monthly reports
 - Performance metrics per barber
 - Service popularity analysis
 - Revenue optimization insights
 
 ### 3. Team Management
+
 - Role-based access control
 - Secure authentication system
 - Individual performance tracking
 - Multi-location support
 
 ### 4. Customization
+
 - White-label solution
 - Brand customization
 - Logo integration
@@ -226,12 +234,14 @@ barber-shop-studio-landing-page-v0/
 ## ⚡ Performance & SEO
 
 ### Performance Optimizations
+
 - **Image Optimization**: Next.js Image component with lazy loading
 - **Code Splitting**: Automatic code splitting with Next.js
 - **Font Optimization**: Geist fonts with variable font support
 - **Bundle Analysis**: Optimized bundle size
 
 ### SEO Features
+
 - **Structured Data**: JSON-LD schema markup
 - **Meta Tags**: Comprehensive meta tag configuration
 - **Open Graph**: Social media sharing optimization
@@ -240,6 +250,7 @@ barber-shop-studio-landing-page-v0/
 - **Robots.txt**: Search engine crawling instructions
 
 ### Analytics
+
 - **Vercel Analytics**: Performance and user behavior tracking
 - **Core Web Vitals**: Monitoring of key performance metrics
 
@@ -270,6 +281,7 @@ We welcome contributions! Please follow these steps:
 7. **Open a Pull Request**
 
 ### Contribution Guidelines
+
 - Follow the existing code style
 - Add TypeScript types for new features
 - Update documentation as needed
@@ -289,6 +301,7 @@ This project is private and proprietary. All rights reserved.
 - **Developer**: [Geovanny Cordero](https://geovannycordero.com)
 
 ### Support
+
 - **Response Time**: Less than 3 hours via WhatsApp, 24 hours via email
 - **Demo Requests**: Available through Calendly scheduling
 - **Technical Support**: Included with implementation

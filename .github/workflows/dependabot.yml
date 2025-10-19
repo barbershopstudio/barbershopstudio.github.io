@@ -1,3 +1,7 @@
+# Dependabot Auto-merge - Optimized for dependency updates
+# This workflow automatically merges safe dependency updates
+# Relies on the main CI/CD pipeline for testing
+
 name: Dependabot Auto-merge
 
 on:
@@ -29,7 +33,10 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
           
-      - name: Run tests for dependency updates
+      - name: Comment on major updates
+        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
         run: |
-          echo "Running tests for dependency update..."
-          # The main CI workflow will handle the actual testing
+          gh pr comment "$PR_URL" --body "⚠️ **Major version update detected** - Please review manually before merging"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

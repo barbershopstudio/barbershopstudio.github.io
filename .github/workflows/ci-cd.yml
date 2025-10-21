@@ -202,6 +202,13 @@ jobs:
           ls -la ./out || echo "No ./out directory found after download"
           echo "Checking if artifacts were downloaded successfully..."
 
+      - name: Setup Node.js 22 (for fallback build)
+        if: steps.download-artifacts.outcome != 'success'
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'yarn'
+
       - name: Fallback build if artifacts missing
         if: steps.download-artifacts.outcome != 'success'
         run: |

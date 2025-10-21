@@ -204,16 +204,31 @@ jobs:
 
       - name: Setup Node.js 22 (for fallback build)
         if: steps.download-artifacts.outcome != 'success'
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v6
         with:
           node-version: 22
           cache: 'yarn'
+
+      - name: Install dependencies (fallback)
+        if: steps.download-artifacts.outcome != 'success'
+        run: yarn install --frozen-lockfile
+
+      - name: Cache Next.js build (fallback)
+        if: steps.download-artifacts.outcome != 'success'
+        uses: actions/cache@v4
+        with:
+          path: |
+            .next/cache
+            node_modules/.cache
+          key: ${{ runner.os }}-nextjs-fallback-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          restore-keys: |
+            ${{ runner.os }}-nextjs-fallback-${{ hashFiles('**/yarn.lock') }}-
+            ${{ runner.os }}-nextjs-fallback-
 
       - name: Fallback build if artifacts missing
         if: steps.download-artifacts.outcome != 'success'
         run: |
           echo "Artifacts not available, building locally..."
-          yarn install --frozen-lockfile
           yarn build
         env:
           NODE_ENV: production

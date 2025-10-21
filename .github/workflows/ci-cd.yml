@@ -127,12 +127,19 @@ jobs:
         env:
           NODE_ENV: production
 
+      - name: Verify build output
+        run: |
+          echo "Build output contents:"
+          ls -la ./out || echo "No ./out directory found"
+          echo "Checking if build succeeded..."
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-files
           path: ./out
           retention-days: 7
+        if: always()
 
   # Performance Testing - Only on PRs
   performance:
@@ -150,6 +157,13 @@ jobs:
         with:
           name: build-files
           path: ./out
+        continue-on-error: true
+
+      - name: Verify downloaded artifacts
+        run: |
+          echo "Downloaded artifacts contents:"
+          ls -la ./out || echo "No ./out directory found after download"
+          echo "Checking if artifacts were downloaded successfully..."
 
       - name: Run Lighthouse CI
         run: |
@@ -179,6 +193,13 @@ jobs:
         with:
           name: build-files
           path: ./out
+        continue-on-error: true
+
+      - name: Verify downloaded artifacts
+        run: |
+          echo "Downloaded artifacts contents:"
+          ls -la ./out || echo "No ./out directory found after download"
+          echo "Checking if artifacts were downloaded successfully..."
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

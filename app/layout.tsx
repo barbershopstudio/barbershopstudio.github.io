@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
 import { Suspense } from 'react';
 import './globals.css';
 
@@ -134,6 +135,14 @@ export default function RootLayout({
   return (
     <html lang='es-CR'>
       <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+        <Script
+          defer
+          data-domain='barbershop-studio.com'
+          src='https://analytics.geovannycordero.com/js/script.outbound-links.js'
+        />
+        <Script id='plausible-init' strategy='beforeInteractive'>
+          {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
+        </Script>
         <Suspense fallback={null}>{children}</Suspense>
         <Analytics />
       </body>

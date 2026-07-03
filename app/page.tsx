@@ -945,8 +945,8 @@ Gracias.`);
                 </a>
               </p>
               <p className='text-xs sm:text-sm text-muted-foreground'>
-                © 2025 Studio Barbershop Pro. Sistema de gestión para
-                barberías. Todos los derechos reservados.
+                © 2025 Studio Barbershop Pro. Sistema de gestión para barberías.
+                Todos los derechos reservados.
               </p>
             </div>
           </div>

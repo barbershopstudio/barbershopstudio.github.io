@@ -1,6 +1,5 @@
 # Studio Barbershop Pro - Landing Page
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/geovanny-corderos-projects/v0-barber-shop-landing-page)
 [![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
@@ -50,7 +49,7 @@ This landing page serves as the marketing frontend for **Studio Barbershop Pro**
 - **TypeScript**: Type-safe development
 - **Tailwind CSS**: Utility-first CSS framework
 - **Lucide React**: Beautiful, customizable icons
-- **Vercel Analytics**: Performance and user analytics
+- **Plausible Analytics**: Privacy-friendly, self-hosted performance and user analytics
 - **SEO Optimization**: Structured data and meta tags
 - **Performance**: Optimized images and lazy loading
 
@@ -61,8 +60,8 @@ This landing page serves as the marketing frontend for **Studio Barbershop Pro**
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Fonts**: [Geist](https://vercel.com/font)
-- **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
-- **Deployment**: [Vercel](https://vercel.com/)
+- **Analytics**: [Plausible](https://plausible.io/) (self-hosted)
+- **Deployment**: GitHub Pages
 
 ## 📋 Prerequisites
 
@@ -153,26 +152,12 @@ npm run build
 npm run start
 ```
 
-### Deployment on Vercel
+### Deployment on GitHub Pages
 
-The project is configured for easy deployment on Vercel:
+The project deploys automatically via the `.github/workflows/ci-cd.yml` GitHub Actions workflow:
 
-1. **Automatic Deployment**: Connected to GitHub repository
-2. **Preview Deployments**: Automatic previews for pull requests
-3. **Production URL**: [https://vercel.com/geovanny-corderos-projects/v0-barber-shop-landing-page](https://vercel.com/geovanny-corderos-projects/v0-barber-shop-landing-page)
-
-### Manual Deployment
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-
-# Deploy to production
-vercel --prod
-```
+1. **Automatic Deployment**: Pushes to `main` trigger a build and deploy to GitHub Pages
+2. **Quality Gates**: Lint, type-check, and security audit run before every deploy
 
 ## 📁 Project Structure
 
@@ -251,7 +236,7 @@ barber-shop-studio-landing-page-v0/
 
 ### Analytics
 
-- **Vercel Analytics**: Performance and user behavior tracking
+- **Plausible Analytics**: Self-hosted performance and user behavior tracking
 - **Core Web Vitals**: Monitoring of key performance metrics
 
 ## 🤝 Contributing

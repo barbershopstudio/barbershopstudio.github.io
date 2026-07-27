@@ -2,7 +2,6 @@ import type React from 'react';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
-import { Analytics } from '@vercel/analytics/next';
 import Script from 'next/script';
 import { Suspense } from 'react';
 import './globals.css';
@@ -144,7 +143,6 @@ export default function RootLayout({
           {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
         </Script>
         <Suspense fallback={null}>{children}</Suspense>
-        <Analytics />
       </body>
     </html>
   );

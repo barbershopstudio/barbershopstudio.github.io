@@ -2,7 +2,7 @@ import type React from 'react';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import Script from 'next/script';
-import { Suspense } from 'react';
+import { LanguageProvider } from '@/lib/i18n/language-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -141,7 +141,7 @@ export default function RootLayout({
         <Script id='plausible-init' strategy='beforeInteractive'>
           {`window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }`}
         </Script>
-        <Suspense fallback={null}>{children}</Suspense>
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

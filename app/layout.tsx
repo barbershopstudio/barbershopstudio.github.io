@@ -1,7 +1,6 @@
 import type React from 'react';
 import type { Metadata } from 'next';
 import { GeistSans } from 'geist/font/sans';
-import { GeistMono } from 'geist/font/mono';
 import Script from 'next/script';
 import { Suspense } from 'react';
 import './globals.css';
@@ -133,7 +132,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es-CR'>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className={`font-sans ${GeistSans.variable}`}>
         <Script
           defer
           data-domain='barbershop-studio.com'

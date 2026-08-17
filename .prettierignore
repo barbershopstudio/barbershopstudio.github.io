@@ -4,10 +4,12 @@ node_modules/
 .pnp.js
 
 # Production builds
-.next/
-out/
 dist/
 build/
+
+# Test artifacts
+test-results/
+playwright-report/
 
 # Environment files
 .env

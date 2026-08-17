@@ -188,7 +188,7 @@ Gracias.`,
   },
 };
 
-const en: typeof es = {
+const en = {
   meta: {
     jsonLdDescription:
       'Professional operations management system for barbershops. Coordinate services in real time, manage your team, and generate automatic reports.',
@@ -376,4 +376,3 @@ Thank you.`,
 };
 
 export const translations = { es, en };
-export type Locale = keyof typeof translations;

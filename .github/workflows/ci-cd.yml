@@ -1,6 +1,7 @@
 # Consolidated CI/CD Pipeline
-# This workflow handles all quality checks, builds, and deployments
-# Replaces: ci.yml, nextjs.yml, pr-validation.yml
+# This workflow handles all quality checks, tests, and deployments for the
+# static HTML/CSS/JS site. There is no build step — the source tree is the
+# deployable site.
 
 name: CI/CD Pipeline
 
@@ -10,16 +11,11 @@ on:
   pull_request:
   workflow_dispatch:
 
-# Sets permissions for all operations
 permissions:
   contents: read
   pages: write
   id-token: write
-  pull-requests: write
-  checks: write
-  issues: write
 
-# Allow only one concurrent deployment
 concurrency:
   group: 'pages'
   cancel-in-progress: false
@@ -30,18 +26,14 @@ jobs:
     name: Quality Checks
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [24]
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
 
-      - name: Setup Node.js ${{ matrix.node-version }}
+      - name: Setup Node.js 24
         uses: actions/setup-node@v7
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 24
           cache: 'yarn'
 
       - name: Install dependencies
@@ -50,20 +42,43 @@ jobs:
       - name: Run ESLint
         run: yarn lint
 
-      - name: Run TypeScript type check
-        run: yarn type-check
-
       - name: Check code formatting
         run: yarn format:check
 
-      # - name: Run tests
-      #   run: yarn test
+  # Tests - unit (node:test) + browser (Playwright)
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
 
-      # - name: Generate test coverage report
-      #   run: yarn test --coverage --coverageReporters=text-lcov | coveralls
-      #   env:
-      #     COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN || '' }}
-      #   continue-on-error: true
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Run unit tests
+        run: yarn test:unit
+
+      - name: Run Playwright tests
+        run: yarn test:e2e
+
+      - name: Upload Playwright report
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
 
   # Security Audit - Runs on every PR and push
   security:
@@ -87,15 +102,12 @@ jobs:
         run: yarn audit --level moderate
         continue-on-error: true
 
-      - name: Run dependency check
-        run: yarn outdated
-        continue-on-error: true
-
-  # Build Job - Only runs after quality checks pass
-  build:
-    name: Build Application
+  # Performance Testing - Only on PRs
+  performance:
+    name: Performance Tests
     runs-on: ubuntu-latest
-    needs: [quality-checks, security]
+    needs: [quality-checks, test]
+    if: github.event_name == 'pull_request'
 
     steps:
       - name: Checkout code
@@ -110,75 +122,10 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Cache Next.js build
-        uses: actions/cache@v6
-        with:
-          path: |
-            .next/cache
-            node_modules/.cache
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/yarn.lock') }}-
-            ${{ runner.os }}-nextjs-
-
-      - name: Build application
-        run: yarn build
-        env:
-          NODE_ENV: production
-
-      - name: Verify build output
-        run: |
-          if [ -d "./out" ] && [ "$(ls -A ./out)" ]; then
-            echo "✅ Build successful, ./out directory created with files"
-            ls -la ./out
-            echo "Build verification passed"
-          else
-            echo "❌ Build failed, no ./out directory found or empty"
-            echo "Current directory contents:"
-            ls -la
-            echo "Checking if Next.js build completed..."
-            exit 1
-          fi
-
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v7
-        with:
-          name: build-files
-          path: ./out
-          retention-days: 7
-        if: always()
-
-  # Performance Testing - Only on PRs
-  performance:
-    name: Performance Tests
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.event_name == 'pull_request'
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v7
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: build-files
-          path: ./out
-        continue-on-error: true
-
-      - name: Verify downloaded artifacts
-        run: |
-          if [ -d "./out" ]; then
-            echo "✅ Artifacts downloaded successfully"
-            ls -la ./out
-          else
-            echo "❌ Artifacts not found, will use fallback build"
-          fi
-
       - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.12.x
-          lhci autorun
+          lhci autorun --collect.staticDistDir=. --collect.url=http://localhost/index.html
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN || '' }}
         continue-on-error: true
@@ -187,7 +134,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest
-    needs: [quality-checks, security, build]
+    needs: [quality-checks, test, security]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
     environment:
@@ -198,170 +145,21 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v7
 
-      - name: Download build artifacts
-        id: download-artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: build-files
-          path: ./out
-        continue-on-error: true
-
-      - name: Verify downloaded artifacts
-        run: |
-          if [ -d "./out" ]; then
-            echo "✅ Artifacts downloaded successfully"
-            ls -la ./out
-          else
-            echo "❌ Artifacts not found, will use fallback build"
-          fi
-
-      - name: Setup Node.js 24 (for fallback build)
-        if: steps.download-artifacts.outcome != 'success'
-        uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          cache: 'yarn'
-
-      - name: Install dependencies (fallback)
-        if: steps.download-artifacts.outcome != 'success'
-        run: yarn install --frozen-lockfile
-
-      - name: Cache Next.js build (fallback)
-        if: steps.download-artifacts.outcome != 'success'
-        uses: actions/cache@v6
-        with:
-          path: |
-            .next/cache
-            node_modules/.cache
-          key: ${{ runner.os }}-nextjs-fallback-${{ hashFiles('**/yarn.lock') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          restore-keys: |
-            ${{ runner.os }}-nextjs-fallback-${{ hashFiles('**/yarn.lock') }}-
-            ${{ runner.os }}-nextjs-fallback-
-
-      - name: Fallback build if artifacts missing
-        if: steps.download-artifacts.outcome != 'success'
-        run: |
-          echo "Artifacts not available, building locally..."
-          echo "Starting Next.js build..."
-          yarn build
-          echo "Build command completed"
-          echo "Checking if ./out was created..."
-          if [ -d "./out" ]; then
-            echo "✅ ./out directory created"
-            ls -la ./out
-          else
-            echo "❌ ./out directory not created by build"
-            echo "Current directory contents:"
-            ls -la
-            echo "This indicates a build failure"
-            exit 1
-          fi
-        env:
-          NODE_ENV: production
-
-      - name: Verify build output exists
-        run: |
-          echo "Checking build output..."
-          if [ -d "./out" ] && [ "$(ls -A ./out)" ]; then
-            echo "✅ ./out directory exists and contains files"
-            ls -la ./out
-            echo "Build output verified successfully"
-          else
-            echo "❌ ./out directory not found or empty"
-            echo "Current directory contents:"
-            ls -la
-            echo "Attempting to create ./out directory manually..."
-            mkdir -p ./out
-            echo "Created ./out directory"
-            exit 1
-          fi
-
       - name: Setup Pages
         uses: actions/configure-pages@v6
-        with:
-          static_site_generator: next
 
-      - name: Upload artifact
+      - name: Stage deployable files
+        run: |
+          mkdir -p dist
+          cp -r index.html css js images \
+            favicon.ico manifest.json robots.txt sitemap.xml browserconfig.xml \
+            dist/
+
+      - name: Upload site
         uses: actions/upload-pages-artifact@v5
         with:
-          path: ./out
+          path: dist
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
-
-  # PR Validation Summary - Only on PRs
-  pr-summary:
-    name: PR Validation Summary
-    runs-on: ubuntu-latest
-    needs: [quality-checks, security, build, performance]
-    if: github.event_name == 'pull_request'
-
-    permissions:
-      pull-requests: write
-      issues: write
-
-    steps:
-      - name: Check for TODO/FIXME comments
-        run: |
-          TODO_COUNT=$(grep -r "TODO\|FIXME" --include="*.ts" --include="*.tsx" --include="*.js" --include="*.jsx" . | wc -l)
-          echo "Found $TODO_COUNT TODO/FIXME comments"
-          if [ $TODO_COUNT -gt 10 ]; then
-            echo "⚠️ High number of TODO/FIXME comments found"
-          fi
-        continue-on-error: true
-
-      - name: Comment PR with results
-        uses: actions/github-script@v9
-        continue-on-error: true
-        with:
-          script: |
-            try {
-              const { data: comments } = await github.rest.issues.listComments({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-              });
-              
-              const botComment = comments.find(comment => 
-                comment.user.type === 'Bot' && 
-                comment.body.includes('## PR Validation Results')
-              );
-              
-              const body = `## PR Validation Results ✅
-              
-              **Status**: All checks passed
-              
-              **Details**:
-              - ✅ Linting: Passed
-              - ✅ Type checking: Passed  
-              - ✅ Security audit: Passed
-              - ✅ Build: Successful
-              - ✅ Performance tests: Completed
-              
-              **Next Steps**:
-              - Review the changes
-              - Merge when ready
-              `;
-              
-              if (botComment) {
-                await github.rest.issues.updateComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  comment_id: botComment.id,
-                  body: body
-                });
-                console.log('Updated existing PR comment');
-              } else {
-                await github.rest.issues.createComment({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: context.issue.number,
-                  body: body
-                });
-                console.log('Created new PR comment');
-              }
-            } catch (error) {
-              console.log('Failed to comment on PR:', error.message);
-              console.log('This is not critical - the validation checks still passed');
-            }

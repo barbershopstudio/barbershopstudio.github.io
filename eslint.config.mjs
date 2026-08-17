@@ -1,32 +1,48 @@
 import { defineConfig, globalIgnores } from 'eslint/config';
-import nextVitals from 'eslint-config-next/core-web-vitals';
-import nextTs from 'eslint-config-next/typescript';
 import prettierRecommended from 'eslint-plugin-prettier/recommended';
 
+// ponytail: hand-listed instead of pulling in the `globals` package for two
+// environments' worth of identifiers.
+const browserGlobals = {
+  window: 'readonly',
+  document: 'readonly',
+  navigator: 'readonly',
+  localStorage: 'readonly',
+  console: 'readonly',
+};
+
+const nodeGlobals = {
+  process: 'readonly',
+  console: 'readonly',
+};
+
 const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
+  {
+    files: ['js/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: browserGlobals,
+    },
+  },
+  {
+    files: ['tests/unit/**/*.js', 'tests/e2e/**/*.js', 'playwright.config.js'],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: nodeGlobals,
+    },
+  },
   prettierRecommended,
   {
     rules: {
-      'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { argsIgnorePattern: '^_' },
-      ],
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@next/next/no-html-link-for-pages': 'error',
-      '@next/next/no-img-element': 'error',
       'prefer-const': 'error',
       'no-var': 'error',
-      'no-console': ['warn', { allow: ['warn', 'error'] }],
-      'jsx-a11y/alt-text': 'error',
-      'jsx-a11y/anchor-is-valid': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error', 'log'] }],
+      'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     },
   },
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+  globalIgnores(['node_modules/**', 'test-results/**', 'playwright-report/**']),
 ]);
 
 export default eslintConfig;

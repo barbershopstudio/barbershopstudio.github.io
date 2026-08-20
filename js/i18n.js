@@ -2,6 +2,7 @@ import { translations } from './translations.js';
 import {
   EMAIL,
   WHATSAPP_NUMBER,
+  SIGNUP_URL,
   buildMailto,
   buildWhatsAppUrl,
 } from './links.js';
@@ -65,6 +66,13 @@ function applyContactLinks(dict) {
   }
 }
 
+function applyPricingLinks() {
+  ['pricing-basico-cta', 'pricing-profesional-cta'].forEach(id => {
+    const cta = document.getElementById(id);
+    if (cta) cta.href = SIGNUP_URL;
+  });
+}
+
 function applyJsonLd(dict, locale) {
   const script = document.getElementById('structured-data');
   if (!script) return;
@@ -87,6 +95,7 @@ function applyLocale(locale) {
   applyText(dict);
   applyAttrs(dict);
   applyContactLinks(dict);
+  applyPricingLinks();
   applyJsonLd(dict, locale);
   applyToggleState(locale);
   document.documentElement.lang = locale === 'en' ? 'en' : 'es-CR';

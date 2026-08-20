@@ -469,7 +469,7 @@
   }
 }
 
-/* ---- contact ---- */
+/* ---- pricing ---- */
 
 .pricing {
   padding-block: 4rem;
@@ -577,6 +577,8 @@
     padding-block: 8rem;
   }
 }
+
+/* ---- contact ---- */
 
 .contact {
   border-block: 1px solid var(--border);

@@ -5,12 +5,17 @@ import {
   buildWhatsAppUrl,
   EMAIL,
   WHATSAPP_NUMBER,
+  SIGNUP_URL,
 } from '../../js/links.js';
 import { translations } from '../../js/translations.js';
 
 test('EMAIL and WHATSAPP_NUMBER match the numbers baked into the original app', () => {
   assert.equal(EMAIL, 'contact.barbershop.studio@gmail.com');
   assert.equal(WHATSAPP_NUMBER, '50688527576');
+});
+
+test('SIGNUP_URL points at the app signup page', () => {
+  assert.equal(SIGNUP_URL, 'https://app.barbershop-studio.com/signup');
 });
 
 test('buildMailto reproduces sendDemoRequest()', () => {

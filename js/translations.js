@@ -163,6 +163,32 @@ Gracias.`,
       colorsCaption: 'Tus colores corporativos',
     },
   },
+  pricing: {
+    heading: 'Precios Simples y Transparentes',
+    subheading: 'Elige el plan que se ajusta al tamaño de tu barbería',
+    cta: 'Comenzar',
+    period: '/mes',
+    basico: {
+      name: 'Básico',
+      description: 'Para una barbería con un solo local',
+      features: [
+        '1 ubicación',
+        'Hasta 3 usuarios',
+        'Gestión de servicios y reportes',
+      ],
+    },
+    profesional: {
+      name: 'Profesional',
+      description: 'Para barberías en crecimiento con varios locales',
+      badge: 'Más Popular',
+      features: [
+        'Ubicaciones ilimitadas',
+        'Usuarios ilimitados',
+        'Gestión de servicios y reportes',
+      ],
+    },
+    note: 'Pago manual vía SINPE Móvil — sin tarjeta de crédito',
+  },
   contact: {
     heading: '¿Listo para Transformar tu Barbería?',
     description:
@@ -352,6 +378,28 @@ Thank you.`,
         'Visualize your brand on every screen of the app',
       colorsCaption: 'Your corporate colors',
     },
+  },
+  pricing: {
+    heading: 'Simple, Transparent Pricing',
+    subheading: 'Choose the plan that fits the size of your barbershop',
+    cta: 'Get Started',
+    period: '/mo',
+    basico: {
+      name: 'Basic',
+      description: 'For a barbershop with a single location',
+      features: ['1 location', 'Up to 3 users', 'Service & reports management'],
+    },
+    profesional: {
+      name: 'Professional',
+      description: 'For growing barbershops with multiple locations',
+      badge: 'Most Popular',
+      features: [
+        'Unlimited locations',
+        'Unlimited users',
+        'Service & reports management',
+      ],
+    },
+    note: 'Manual payment via SINPE Móvil — no credit card needed',
   },
   contact: {
     heading: 'Ready to Transform Your Barbershop?',

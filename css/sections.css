@@ -469,6 +469,115 @@
   }
 }
 
+/* ---- pricing ---- */
+
+.pricing {
+  padding-block: 4rem;
+}
+
+.pricing__grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+.pricing-card {
+  position: relative;
+  padding: 2rem;
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.pricing-card--featured {
+  border-color: var(--primary);
+}
+
+.pricing-card__badge {
+  position: absolute;
+  top: -0.75rem;
+  left: 2rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.pricing-card h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.pricing-card__description {
+  color: var(--muted-foreground);
+  font-size: 0.9rem;
+}
+
+.pricing-card__price {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-block: 0.5rem;
+}
+
+.pricing-card__price span {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--muted-foreground);
+}
+
+.pricing-card__features {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+  margin-block: 0.5rem 1rem;
+}
+
+.pricing-card__features li {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.pricing-card__features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.pricing-card__cta {
+  width: 100%;
+}
+
+.pricing__note {
+  margin-top: 2rem;
+  text-align: center;
+  color: var(--muted-foreground);
+  font-size: 0.85rem;
+}
+
+@media (min-width: 640px) {
+  .pricing {
+    padding-block: 5rem;
+  }
+  .pricing__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 56rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pricing {
+    padding-block: 8rem;
+  }
+}
+
 /* ---- contact ---- */
 
 .contact {

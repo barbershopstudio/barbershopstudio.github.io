@@ -41,14 +41,6 @@ function applyAttrs(dict) {
 }
 
 function applyContactLinks(dict) {
-  const cta = document.getElementById('cta-demo');
-  if (cta) {
-    cta.href = buildMailto(
-      EMAIL,
-      dict.actions.demoRequest.subject,
-      dict.actions.demoRequest.body
-    );
-  }
   const whatsapp = document.getElementById('contact-whatsapp');
   if (whatsapp) {
     whatsapp.href = buildWhatsAppUrl(
@@ -66,8 +58,13 @@ function applyContactLinks(dict) {
   }
 }
 
-function applyPricingLinks() {
-  ['pricing-basico-cta', 'pricing-profesional-cta'].forEach(id => {
+function applySignupLinks() {
+  [
+    'cta-signup',
+    'how-cta',
+    'pricing-basico-cta',
+    'pricing-profesional-cta',
+  ].forEach(id => {
     const cta = document.getElementById(id);
     if (cta) cta.href = SIGNUP_URL;
   });
@@ -95,7 +92,7 @@ function applyLocale(locale) {
   applyText(dict);
   applyAttrs(dict);
   applyContactLinks(dict);
-  applyPricingLinks();
+  applySignupLinks();
   applyJsonLd(dict, locale);
   applyToggleState(locale);
   document.documentElement.lang = locale === 'en' ? 'en' : 'es-CR';

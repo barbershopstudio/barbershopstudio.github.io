@@ -1,15 +1,21 @@
 import { test, expect } from '@playwright/test';
 
-test('the demo CTA is a real mailto link with the original subject/body', async ({
+test('the hero CTA links to the app signup page', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('#cta-signup')).toHaveAttribute(
+    'href',
+    'https://app.barbershop-studio.com/signup'
+  );
+});
+
+test('the hero CTA still points at signup after switching locale', async ({
   page,
 }) => {
   await page.goto('/');
-  const href = await page.locator('#cta-demo').getAttribute('href');
-  expect(href).toMatch(
-    /^mailto:contact\.barbershop\.studio@gmail\.com\?subject=/
-  );
-  expect(href).toContain(
-    encodeURIComponent('Solicitud de Demostración - Studio Barbershop Pro')
+  await page.getByRole('button', { name: 'EN' }).click();
+  await expect(page.locator('#cta-signup')).toHaveAttribute(
+    'href',
+    'https://app.barbershop-studio.com/signup'
   );
 });
 

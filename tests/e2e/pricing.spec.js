@@ -3,8 +3,8 @@ import { test, expect } from '@playwright/test';
 test('renders both plan cards with their CRC prices', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#pricing-heading')).toBeVisible();
-  await expect(page.locator('#pricing-basico')).toContainText('₡15,000');
-  await expect(page.locator('#pricing-profesional')).toContainText('₡30,000');
+  await expect(page.locator('#pricing-basico')).toContainText('₡17,000');
+  await expect(page.locator('#pricing-profesional')).toContainText('₡23,000');
 });
 
 test('each plan CTA links to the app signup page', async ({ page }) => {

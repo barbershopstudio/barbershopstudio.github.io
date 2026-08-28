@@ -18,15 +18,6 @@ test('SIGNUP_URL points at the app signup page', () => {
   assert.equal(SIGNUP_URL, 'https://app.barbershop-studio.com/signup');
 });
 
-test('buildMailto reproduces sendDemoRequest()', () => {
-  const { subject, body } = translations.es.actions.demoRequest;
-  const url = buildMailto(EMAIL, subject, body);
-  assert.equal(
-    url,
-    `mailto:contact.barbershop.studio@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
-  );
-});
-
 test('buildMailto reproduces openEmail()', () => {
   const { subject, body } = translations.es.actions.contactEmail;
   const url = buildMailto(EMAIL, subject, body);

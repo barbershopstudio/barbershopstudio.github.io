@@ -7,6 +7,18 @@ test('renders both plan cards with their CRC prices', async ({ page }) => {
   await expect(page.locator('#pricing-profesional')).toContainText('₡23,000');
 });
 
+test('both plans list appointment scheduling as an included feature', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await expect(page.locator('#pricing-basico')).toContainText(
+    'Agenda de citas'
+  );
+  await expect(page.locator('#pricing-profesional')).toContainText(
+    'Agenda de citas'
+  );
+});
+
 test('each plan CTA links to the app signup page', async ({ page }) => {
   await page.goto('/');
   await expect(page.locator('#pricing-basico-cta')).toHaveAttribute(

@@ -1,21 +1,9 @@
 const es = {
   meta: {
     jsonLdDescription:
-      'Sistema profesional de gestión operativa para barberías. Coordina servicios en tiempo real, gestiona tu equipo y genera reportes automáticos.',
+      'Sistema de gestión para barberías: agenda de citas, registro de servicios con cliente y método de pago, reportes por barbero y control de tu equipo. Regístrate en línea y paga por SINPE Móvil.',
   },
   actions: {
-    demoRequest: {
-      subject: 'Solicitud de Demostración - Studio Barbershop Pro',
-      body: `Hola,
-
-Me interesa solicitar una demostración del sistema Studio Barbershop Pro para mi barbería.
-
-Por favor, contácteme para coordinar una demostración personalizada.
-
-Este es mi número de whatsapp: [incluir número de whatsapp]
-
-Gracias.`,
-    },
     whatsappMessage:
       'Hola, me interesa conocer más sobre Studio Barbershop Pro para mi barbería.',
     contactEmail: {
@@ -24,7 +12,7 @@ Gracias.`,
 
 Me interesa conocer más sobre el sistema Studio Barbershop Pro para mi barbería.
 
-Por favor, contácteme para coordinar una demostración.
+Tengo algunas preguntas antes de registrarme. ¿Me pueden contactar?
 
 Gracias.`,
     },
@@ -34,8 +22,9 @@ Gracias.`,
       'Studio Barbershop Pro - Sistema de gestión profesional para barberías',
     title: 'Gestiona las Operaciones de Tu Barbería con Eficiencia Total',
     description:
-      'Sistema profesional de gestión operativa para barberías. Coordina a tu equipo, asigna servicios en tiempo real, genera reportes automáticos y controla cada detalle de tu negocio desde una sola plataforma. Recupera horas de trabajo administrativo y enfócate en lo que realmente importa: tus clientes.',
-    cta: 'Solicitar Demostración',
+      'Sistema profesional de gestión operativa para barberías. Agenda citas sin choques de horario, registra cada servicio con su cliente y método de pago, genera reportes por barbero y controla cada detalle de tu negocio desde una sola plataforma. Recupera horas de trabajo administrativo y enfócate en lo que realmente importa: tus clientes.',
+    cta: 'Comenzar Ahora',
+    ctaSecondary: 'Ver Cómo Funciona',
   },
   stats: {
     ariaLabel: 'Estadísticas de eficiencia',
@@ -60,14 +49,15 @@ Gracias.`,
       badge: 'Gestión de Servicios en Vivo',
       title: 'Coordina Servicios al Instante',
       description:
-        '¿Pierdes tiempo anotando servicios en papel o tratando de recordar quién está atendiendo a cada cliente? Con nuestro sistema de gestión para barberías, registra cada servicio en segundos, asigna barberos específicos y mantén un seguimiento preciso de todo lo que sucede en tu local. Cada servicio queda documentado con hora, barbero y precio, eliminando confusiones y mejorando la organización de tu equipo.',
+        '¿Pierdes tiempo anotando servicios en papel o tratando de recordar quién atendió a cada cliente y cómo pagó? Con nuestro sistema de gestión para barberías, registra cada servicio en segundos, asígnalo a un barbero y anota el nombre del cliente y el método de pago (efectivo, SINPE o PayPal). Cada servicio queda documentado con hora, barbero, precio, cliente y forma de pago, eliminando confusiones y cuadrando la caja al final del día.',
       bullets: [
         'Registra servicios de barbería en tiempo real desde cualquier dispositivo',
         'Asigna servicios específicos a cada barbero según su especialidad',
+        'Guarda el nombre del cliente y el método de pago en cada servicio',
         'Visualiza el progreso del día y servicios completados al instante',
       ],
       imageAlt:
-        'Interfaz de gestión de servicios de barbería en tiempo real mostrando selección de servicios como corte moderno, corte clásico, barba y marcado con precios',
+        'Lista de servicios del día en la barbería mostrando hora, servicio, nombre del cliente, precio y método de pago (efectivo y SINPE) por cada registro',
     },
     reports: {
       badge: 'Reportes Operativos Inteligentes',
@@ -96,6 +86,23 @@ Gracias.`,
         'Sistema de autenticación seguro para barbería con verificación por código de 6 dígitos enviado por correo electrónico',
     },
   },
+  appointments: {
+    heading: 'Agenda de Citas Sin Choques de Horario',
+    subheading:
+      'Reserva citas por barbero y por local, con bloques de 30 minutos y control de disponibilidad',
+    badge: 'Agenda Integrada',
+    title: 'Cada Cita en Su Lugar, Sin Dobles Reservas',
+    description:
+      'Agenda citas para cualquier barbero en bloques de 30 minutos y deja que el sistema bloquee los conflictos de horario antes de que ocurran. El administrador ve un resumen del día con el total de citas por barbero y puede entrar al detalle de cada uno. Los barberos gestionan su propia agenda cuando les das permiso; el resto solo consulta.',
+    bullets: [
+      'Bloques de 30 minutos con detección automática de conflictos de horario',
+      'Permiso de agendamiento por barbero: el administrador siempre puede, cada barbero según lo habilites',
+      'Resumen diario por barbero con acceso al detalle de cada cita',
+      'Cada cita guarda cliente, servicio, hora de inicio y fin, y local',
+    ],
+    imageAlt:
+      'Pantalla de citas de la barbería mostrando el detalle de un barbero con dos citas del día, cada una con nombre del cliente, rango de hora, duración y servicio',
+  },
   benefits: {
     heading: 'Beneficios que Transforman Tu Día a Día',
     cards: [
@@ -121,46 +128,62 @@ Gracias.`,
       },
     ],
   },
-  customization: {
-    badge: 'Personalización Total',
-    heading: 'Tu Marca, Tu Identidad, Tu App',
-    description:
-      'Cada barbería es única, y tu aplicación también debe serlo. Personaliza completamente el sistema con tu marca, colores corporativos, logo y nombre de tu negocio. Ofrece a tu equipo y clientes una experiencia 100% alineada con tu identidad visual, sin comprometer la funcionalidad profesional que necesitas.',
-    items: [
+  how: {
+    heading: 'Cómo Empezar',
+    subheading: 'De registro a barbería en operación, sin tarjeta de crédito',
+    cta: 'Registrar Mi Barbería',
+    steps: [
       {
-        title: 'Logo Personalizado',
+        title: 'Regístrate',
         description:
-          'Integra el logo de tu barbería en toda la aplicación para reforzar tu identidad de marca',
+          'Crea la cuenta de tu barbería, agrega tus datos y elige el plan Básico o Profesional.',
       },
       {
-        title: 'Colores Corporativos',
+        title: 'Paga por SINPE Móvil',
         description:
-          'Adapta la paleta de colores completa para que coincida perfectamente con tu branding',
+          'Transfiere el monto del plan al número que te indicamos y escribe el código de referencia en el detalle de la transferencia.',
+      },
+      {
+        title: 'Sube tu comprobante',
+        description:
+          'Adjunta la imagen del comprobante de SINPE desde la misma pantalla. Nada de tarjetas ni formularios largos.',
+      },
+      {
+        title: 'Empieza a usar el sistema',
+        description:
+          'Revisamos el comprobante y activamos tu cuenta en pocas horas. Te avisamos por correo cuando esté lista.',
+      },
+    ],
+  },
+  customization: {
+    badge: 'Tu Marca en la App',
+    heading: 'Tu Barbería, No un Software Genérico',
+    description:
+      'El nombre y el logo de tu barbería aparecen en toda la aplicación: en la barra de navegación, en la pantalla de inicio de sesión y en los correos que envía el sistema. Tu equipo entra a "tu" plataforma, no a una herramienta cualquiera.',
+    items: [
+      {
+        title: 'Logo de Tu Barbería',
+        description:
+          'Tu logo en la barra de navegación y en la pantalla de acceso, en cada dispositivo',
       },
       {
         title: 'Nombre de Tu Negocio',
         description:
-          'Personaliza el nombre de la aplicación con el de tu barbería en todas las pantallas',
-      },
-      {
-        title: 'Elementos Visuales',
-        description:
-          'Ajusta tipografías, iconos y otros detalles visuales según tus preferencias',
+          'El nombre de tu barbería reemplaza al del sistema en toda la app y en los correos',
       },
     ],
     whiteLabel: {
-      title: 'Solución White-Label Completa',
+      title: 'Tu Identidad en Cada Pantalla',
       description:
-        'No es solo un software genérico. Es TU plataforma de gestión con tu identidad visual completa. Perfecto para barberías que quieren proyectar profesionalismo y coherencia de marca en cada interacción con su equipo.',
+        'No es un software genérico con el nombre de otra empresa. Es la plataforma de gestión de tu barbería, con tu nombre y tu logo, para tu equipo.',
       bullets: [
-        'Personalización completa sin costos adicionales',
-        'Implementación de tu branding en menos de 24 horas',
-        'Actualizaciones de diseño cuando lo necesites',
+        'El logo de tu barbería en la navegación y en la pantalla de acceso',
+        'El nombre de tu negocio en toda la aplicación y en los correos del sistema',
+        'Incluido en ambos planes, sin costo adicional',
       ],
       logoPlaceholderTitle: 'Tu Logo Aquí',
       logoPlaceholderDescription:
-        'Visualiza tu marca en cada pantalla de la aplicación',
-      colorsCaption: 'Tus colores corporativos',
+        'Así se ve tu marca en la barra de navegación de la app',
     },
   },
   pricing: {
@@ -174,7 +197,8 @@ Gracias.`,
       features: [
         '1 ubicación',
         'Hasta 3 usuarios',
-        'Gestión de servicios y reportes',
+        'Registro de servicios y reportes por barbero',
+        'Agenda de citas',
       ],
     },
     profesional: {
@@ -184,15 +208,46 @@ Gracias.`,
       features: [
         'Ubicaciones ilimitadas',
         'Usuarios ilimitados',
-        'Gestión de servicios y reportes',
+        'Registro de servicios y reportes por barbero',
+        'Agenda de citas',
       ],
     },
     note: 'Pago manual vía SINPE Móvil — sin tarjeta de crédito',
   },
+  faq: {
+    heading: 'Preguntas Frecuentes',
+    subheading: 'Lo que suelen preguntar las barberías antes de registrarse',
+    items: [
+      {
+        q: '¿Cómo pago la suscripción?',
+        a: 'El pago es manual por SINPE Móvil. Al registrarte te damos un número y un código de referencia; haces la transferencia, subes el comprobante y listo. No se necesita tarjeta de crédito.',
+      },
+      {
+        q: '¿Cuánto tarda en activarse mi cuenta?',
+        a: 'Revisamos el comprobante de SINPE y activamos la cuenta en pocas horas. Te avisamos por correo cuando esté lista. Si algo falta en el comprobante, te escribimos con el motivo para que lo vuelvas a subir.',
+      },
+      {
+        q: '¿Qué incluye cada plan?',
+        a: 'El plan Básico cubre 1 ubicación y hasta 3 usuarios. El plan Profesional permite ubicaciones y usuarios ilimitados. Ambos incluyen el registro de servicios, la agenda de citas y los reportes por barbero.',
+      },
+      {
+        q: '¿Quién puede agendar citas?',
+        a: 'El administrador siempre puede agendar. Cada barbero puede gestionar su propia agenda solo si le activas el permiso; los demás únicamente consultan las citas del día.',
+      },
+      {
+        q: '¿Qué pasa cuando termina el período pagado?',
+        a: 'La cuenta pasa a "renovación pendiente" y el acceso queda en pausa hasta que renueves. Escríbenos para coordinar el pago del siguiente período y reactivarla.',
+      },
+      {
+        q: '¿Puedo poner la marca de mi barbería?',
+        a: 'Sí. El nombre y el logo de tu barbería aparecen en la navegación, en la pantalla de acceso y en los correos del sistema, en ambos planes y sin costo adicional.',
+      },
+    ],
+  },
   contact: {
-    heading: '¿Listo para Transformar tu Barbería?',
+    heading: '¿Tienes Preguntas Antes de Registrarte?',
     description:
-      'Contáctanos hoy mismo y descubre cómo Studio Barbershop Pro puede revolucionar las operaciones de tu negocio',
+      'Escríbenos por WhatsApp o correo y te ayudamos a elegir el plan y a poner tu barbería en marcha',
     whatsapp: {
       title: 'WhatsApp',
       description: 'Chatea con nosotros directamente',
@@ -210,28 +265,16 @@ Gracias.`,
   footer: {
     developedByPrefix: 'Desarrollo por:',
     copyright:
-      '© 2025 Studio Barbershop Pro. Sistema de gestión para barberías. Todos los derechos reservados.',
+      '© 2026 Studio Barbershop Pro. Sistema de gestión para barberías. Todos los derechos reservados.',
   },
 };
 
 const en = {
   meta: {
     jsonLdDescription:
-      'Professional operations management system for barbershops. Coordinate services in real time, manage your team, and generate automatic reports.',
+      'Barbershop management system: appointment booking, service logging with client and payment method, per-barber reports, and team control. Sign up online and pay via SINPE Móvil.',
   },
   actions: {
-    demoRequest: {
-      subject: 'Demo Request - Studio Barbershop Pro',
-      body: `Hi,
-
-I'm interested in requesting a demo of the Studio Barbershop Pro system for my barbershop.
-
-Please contact me to schedule a personalized demonstration.
-
-Here is my WhatsApp number: [include your WhatsApp number]
-
-Thank you.`,
-    },
     whatsappMessage:
       "Hi, I'd like to learn more about Studio Barbershop Pro for my barbershop.",
     contactEmail: {
@@ -240,7 +283,7 @@ Thank you.`,
 
 I'm interested in learning more about the Studio Barbershop Pro system for my barbershop.
 
-Please contact me to schedule a demonstration.
+I have a few questions before signing up. Could you get in touch?
 
 Thank you.`,
     },
@@ -250,8 +293,9 @@ Thank you.`,
       'Studio Barbershop Pro - Professional management system for barbershops',
     title: 'Run Your Barbershop Operations With Total Efficiency',
     description:
-      'A professional operations management system for barbershops. Coordinate your team, assign services in real time, generate automatic reports, and control every detail of your business from a single platform. Reclaim hours of administrative work and focus on what really matters: your clients.',
-    cta: 'Request a Demo',
+      'A professional operations management system for barbershops. Book appointments with no schedule clashes, log every service with its client and payment method, generate per-barber reports, and control every detail of your business from a single platform. Reclaim hours of administrative work and focus on what really matters: your clients.',
+    cta: 'Get Started',
+    ctaSecondary: 'See How It Works',
   },
   stats: {
     ariaLabel: 'Efficiency statistics',
@@ -276,14 +320,15 @@ Thank you.`,
       badge: 'Live Service Management',
       title: 'Coordinate Services Instantly',
       description:
-        "Wasting time jotting down services on paper or trying to remember who's serving each client? With our barbershop management system, log every service in seconds, assign specific barbers, and keep an accurate record of everything happening at your shop. Every service is logged with time, barber, and price, eliminating confusion and keeping your team organized.",
+        "Wasting time jotting down services on paper or trying to remember who served each client and how they paid? With our barbershop management system, log every service in seconds, assign it to a barber, and record the client's name and payment method (cash, SINPE, or PayPal). Every service is logged with time, barber, price, client, and payment method, eliminating confusion and balancing the till at the end of the day.",
       bullets: [
         'Log barbershop services in real time from any device',
         'Assign specific services to each barber based on their specialty',
+        "Save the client's name and payment method on every service",
         "See the day's progress and completed services instantly",
       ],
       imageAlt:
-        'Real-time barbershop service management interface showing service selection such as modern cut, classic cut, beard trim, and pricing',
+        "Barbershop's daily service list showing time, service, client name, price, and payment method (cash and SINPE) for each record",
     },
     reports: {
       badge: 'Smart Operational Reports',
@@ -312,6 +357,23 @@ Thank you.`,
         'Secure barbershop authentication system with a 6-digit verification code sent by email',
     },
   },
+  appointments: {
+    heading: 'Appointment Booking With No Schedule Clashes',
+    subheading:
+      'Book appointments per barber and per location, in 30-minute blocks, with availability checks',
+    badge: 'Built-in Scheduling',
+    title: 'Every Appointment in Its Place, No Double Bookings',
+    description:
+      'Book appointments for any barber in 30-minute blocks and let the system block schedule conflicts before they happen. The admin sees a daily summary with the appointment count per barber and can drill into each one. Barbers manage their own calendar when you grant them permission; everyone else just views it.',
+    bullets: [
+      '30-minute blocks with automatic schedule-conflict detection',
+      'Per-barber scheduling permission: the admin always can, each barber only if you enable it',
+      'Daily per-barber summary with drill-down into every appointment',
+      'Each appointment stores client, service, start and end time, and location',
+    ],
+    imageAlt:
+      "Barbershop appointments screen showing one barber's detail with two appointments for the day, each with client name, time range, duration, and service",
+  },
   benefits: {
     heading: 'Benefits That Transform Your Day-to-Day',
     cards: [
@@ -337,46 +399,62 @@ Thank you.`,
       },
     ],
   },
-  customization: {
-    badge: 'Total Customization',
-    heading: 'Your Brand, Your Identity, Your App',
-    description:
-      "Every barbershop is unique, and your app should be too. Fully customize the system with your brand, corporate colors, logo, and business name. Give your team and clients an experience that's 100% aligned with your visual identity, without compromising the professional functionality you need.",
-    items: [
+  how: {
+    heading: 'How to Get Started',
+    subheading: 'From sign-up to a running barbershop, no credit card required',
+    cta: 'Register My Barbershop',
+    steps: [
       {
-        title: 'Custom Logo',
+        title: 'Register your barbershop',
         description:
-          'Add your barbershop logo throughout the app to reinforce your brand identity',
+          "Create your barbershop's account, add your details, and pick the Basic or Professional plan.",
       },
       {
-        title: 'Corporate Colors',
+        title: 'Pay via SINPE Móvil',
         description:
-          'Adapt the full color palette to match your branding perfectly',
+          "Transfer the plan amount to the number we give you and write the reference code in the transfer's detail field.",
+      },
+      {
+        title: 'Upload your receipt',
+        description:
+          'Attach the image of your SINPE receipt from the same screen. No cards, no long forms.',
+      },
+      {
+        title: 'Start using the system',
+        description:
+          'We review the receipt and activate your account within a few hours. We email you when it is ready.',
+      },
+    ],
+  },
+  customization: {
+    badge: 'Your Brand in the App',
+    heading: 'Your Barbershop, Not Generic Software',
+    description:
+      "Your barbershop's name and logo appear throughout the app: in the navigation bar, on the sign-in screen, and in the emails the system sends. Your team logs into 'your' platform, not just another tool.",
+    items: [
+      {
+        title: "Your Barbershop's Logo",
+        description:
+          'Your logo in the navigation bar and on the sign-in screen, on every device',
       },
       {
         title: 'Your Business Name',
         description:
-          'Customize the app name with your barbershop name on every screen',
-      },
-      {
-        title: 'Visual Elements',
-        description:
-          'Adjust typography, icons, and other visual details to your preference',
+          "Your barbershop's name replaces the system's across the whole app and its emails",
       },
     ],
     whiteLabel: {
-      title: 'Complete White-Label Solution',
+      title: 'Your Identity on Every Screen',
       description:
-        "It's not just generic software. It's YOUR management platform with your complete visual identity. Perfect for barbershops that want to project professionalism and brand consistency in every interaction with their team.",
+        "It's not generic software with another company's name on it. It's your barbershop's management platform, with your name and your logo, for your team.",
       bullets: [
-        'Complete customization at no extra cost',
-        'Your branding implemented in under 24 hours',
-        'Design updates whenever you need them',
+        "Your barbershop's logo in the navigation and on the sign-in screen",
+        "Your business name across the whole app and the system's emails",
+        'Included in both plans, at no extra cost',
       ],
       logoPlaceholderTitle: 'Your Logo Here',
       logoPlaceholderDescription:
-        'Visualize your brand on every screen of the app',
-      colorsCaption: 'Your corporate colors',
+        "This is how your brand looks in the app's navigation bar",
     },
   },
   pricing: {
@@ -387,7 +465,12 @@ Thank you.`,
     basico: {
       name: 'Basic',
       description: 'For a barbershop with a single location',
-      features: ['1 location', 'Up to 3 users', 'Service & reports management'],
+      features: [
+        '1 location',
+        'Up to 3 users',
+        'Service logging & per-barber reports',
+        'Appointment scheduling',
+      ],
     },
     profesional: {
       name: 'Professional',
@@ -396,15 +479,46 @@ Thank you.`,
       features: [
         'Unlimited locations',
         'Unlimited users',
-        'Service & reports management',
+        'Service logging & per-barber reports',
+        'Appointment scheduling',
       ],
     },
     note: 'Manual payment via SINPE Móvil — no credit card needed',
   },
+  faq: {
+    heading: 'Frequently Asked Questions',
+    subheading: 'What barbershops usually ask before signing up',
+    items: [
+      {
+        q: 'How do I pay for my subscription?',
+        a: 'Payment is manual via SINPE Móvil. When you sign up we give you a phone number and a reference code; you make the transfer, upload the receipt, and you are done. No credit card required.',
+      },
+      {
+        q: 'How long does it take to activate my account?',
+        a: 'We review the SINPE receipt and activate the account within a few hours. We email you when it is ready. If something is missing from the receipt, we write back with the reason so you can upload it again.',
+      },
+      {
+        q: 'What does each plan include?',
+        a: 'The Basic plan covers 1 location and up to 3 users. The Professional plan allows unlimited locations and users. Both include service logging, appointment scheduling, and per-barber reports.',
+      },
+      {
+        q: 'Who can book appointments?',
+        a: 'The admin can always book. Each barber can manage their own calendar only if you enable the permission; everyone else only views the day’s appointments.',
+      },
+      {
+        q: 'What happens when the paid period ends?',
+        a: 'The account moves to "renewal pending" and access is paused until you renew. Write to us to arrange payment for the next period and reactivate it.',
+      },
+      {
+        q: "Can I use my barbershop's branding?",
+        a: "Yes. Your barbershop's name and logo appear in the navigation, on the sign-in screen, and in the system's emails, on both plans and at no extra cost.",
+      },
+    ],
+  },
   contact: {
-    heading: 'Ready to Transform Your Barbershop?',
+    heading: 'Questions Before You Sign Up?',
     description:
-      'Contact us today and discover how Studio Barbershop Pro can revolutionize your business operations',
+      'Message us on WhatsApp or email and we will help you pick a plan and get your barbershop up and running',
     whatsapp: { title: 'WhatsApp', description: 'Chat with us directly' },
     email: { title: 'Email', description: 'Send us a detailed message' },
     calendly: {
@@ -419,7 +533,7 @@ Thank you.`,
   footer: {
     developedByPrefix: 'Developed by:',
     copyright:
-      '© 2025 Studio Barbershop Pro. Barbershop management system. All rights reserved.',
+      '© 2026 Studio Barbershop Pro. Barbershop management system. All rights reserved.',
   },
 };
 

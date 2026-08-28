@@ -21,7 +21,7 @@
     <title>Studio Barbershop Pro - Sistema de Gestión para Barberías</title>
     <meta
       name="description"
-      content="Plataforma profesional de gestión operativa para barberías. Coordina servicios en tiempo real, gestiona tu equipo, genera reportes automáticos y optimiza las operaciones diarias de tu barbería. Ahorra horas de trabajo administrativo."
+      content="Sistema de gestión para barberías: agenda de citas sin choques de horario, registro de servicios con cliente y método de pago, reportes por barbero y control de tu equipo. Regístrate en línea y paga por SINPE Móvil."
     />
     <meta name="application-name" content="Studio Barbershop Pro" />
     <link rel="author" href="https://geovannycordero.com" />
@@ -63,7 +63,7 @@
     />
     <meta
       property="og:description"
-      content="Gestiona las operaciones de tu barbería con eficiencia total. Coordina servicios, gestiona personal y accede a reportes en tiempo real."
+      content="Agenda de citas, registro de servicios con cliente y método de pago, y reportes por barbero. Regístrate en línea y paga por SINPE Móvil."
     />
     <meta property="og:url" content="https://barbershop-studio.com/" />
     <meta property="og:site_name" content="Studio Barbershop Pro" />
@@ -89,7 +89,7 @@
     />
     <meta
       name="twitter:description"
-      content="Plataforma profesional para gestionar operaciones de barberías. Ahorra tiempo y optimiza tu negocio."
+      content="Agenda de citas, registro de servicios con cliente y método de pago, y reportes por barbero. Regístrate en línea, pago por SINPE Móvil."
     />
     <meta
       name="twitter:image"
@@ -107,10 +107,17 @@
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "Studio Barbershop Pro",
-        "description": "Sistema profesional de gestión operativa para barberías. Coordina servicios en tiempo real, gestiona tu equipo y genera reportes automáticos.",
+        "description": "Sistema de gestión para barberías: agenda de citas, registro de servicios con cliente y método de pago, reportes por barbero y control de tu equipo. Regístrate en línea y paga por SINPE Móvil.",
         "url": "https://barbershop-studio.com",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web Browser",
+        "featureList": [
+          "Agenda de citas por barbero y local con detección de conflictos",
+          "Registro de servicios con cliente y método de pago",
+          "Reportes de ingresos por barbero",
+          "Roles de Administrador y Barbero",
+          "Registro en línea con pago por SINPE Móvil"
+        ],
         "offers": [
           {
             "@type": "Offer",
@@ -136,13 +143,8 @@
           "@type": "Organization",
           "name": "Studio Barbershop Pro"
         },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "150"
-        },
         "screenshot": "/images/design-mode/home_big.png",
-        "softwareVersion": "1.0.0",
+        "softwareVersion": "1.1.0",
         "datePublished": "2025-01-27",
         "inLanguage": "es-CR"
       }
@@ -191,19 +193,25 @@
           Gestiona las Operaciones de Tu Barbería con Eficiencia Total
         </h1>
         <p class="hero__description" data-i18n="hero.description">
-          Sistema profesional de gestión operativa para barberías. Coordina a tu
-          equipo, asigna servicios en tiempo real, genera reportes automáticos y
-          controla cada detalle de tu negocio desde una sola plataforma.
-          Recupera horas de trabajo administrativo y enfócate en lo que
-          realmente importa: tus clientes.
+          Sistema profesional de gestión operativa para barberías. Agenda citas
+          sin choques de horario, registra cada servicio con su cliente y método
+          de pago, genera reportes por barbero y controla cada detalle de tu
+          negocio desde una sola plataforma. Recupera horas de trabajo
+          administrativo y enfócate en lo que realmente importa: tus clientes.
         </p>
         <div class="hero__actions">
           <a
-            id="cta-demo"
+            id="cta-signup"
             class="btn"
-            href="mailto:contact.barbershop.studio@gmail.com"
+            href="https://app.barbershop-studio.com/signup"
             data-i18n="hero.cta"
-            >Solicitar Demostración</a
+            >Comenzar Ahora</a
+          >
+          <a
+            class="btn btn--ghost"
+            href="#how-heading"
+            data-i18n="hero.ctaSecondary"
+            >Ver Cómo Funciona</a
           >
         </div>
       </div>
@@ -287,12 +295,12 @@
             </h3>
             <p data-i18n="features.serviceManagement.description">
               ¿Pierdes tiempo anotando servicios en papel o tratando de recordar
-              quién está atendiendo a cada cliente? Con nuestro sistema de
-              gestión para barberías, registra cada servicio en segundos, asigna
-              barberos específicos y mantén un seguimiento preciso de todo lo
-              que sucede en tu local. Cada servicio queda documentado con hora,
-              barbero y precio, eliminando confusiones y mejorando la
-              organización de tu equipo.
+              quién atendió a cada cliente y cómo pagó? Con nuestro sistema de
+              gestión para barberías, registra cada servicio en segundos,
+              asígnalo a un barbero y anota el nombre del cliente y el método de
+              pago (efectivo, SINPE o PayPal). Cada servicio queda documentado
+              con hora, barbero, precio, cliente y forma de pago, eliminando
+              confusiones y cuadrando la caja al final del día.
             </p>
             <ul class="check-list">
               <li>
@@ -348,6 +356,25 @@
                   <path d="M20 6 9 17l-5-5"></path>
                 </svg>
                 <span data-i18n="features.serviceManagement.bullets.2"
+                  >Guarda el nombre del cliente y el método de pago en cada
+                  servicio</span
+                >
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span data-i18n="features.serviceManagement.bullets.3"
                   >Visualiza el progreso del día y servicios completados al
                   instante</span
                 >
@@ -357,11 +384,11 @@
           <div class="feature__media feature__media--first">
             <div class="card">
               <img
-                src="images/design-mode/home_big.png"
-                width="800"
-                height="600"
+                src="images/design-mode/service_tracking.png"
+                width="1280"
+                height="800"
                 loading="lazy"
-                alt="Interfaz de gestión de servicios de barbería en tiempo real mostrando selección de servicios como corte moderno, corte clásico, barba y marcado con precios"
+                alt="Lista de servicios del día en la barbería mostrando hora, servicio, nombre del cliente, precio y método de pago (efectivo y SINPE) por cada registro"
                 data-i18n-attr="alt:features.serviceManagement.imageAlt"
               />
             </div>
@@ -588,6 +615,135 @@
             </div>
           </div>
         </article>
+
+        <!-- Feature 4 - Appointments -->
+        <article class="feature">
+          <div class="feature__copy">
+            <span class="badge">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M8 2v4"></path>
+                <path d="M16 2v4"></path>
+                <rect width="18" height="18" x="3" y="4" rx="2"></rect>
+                <path d="M3 10h18"></path>
+                <path d="M8 14h.01"></path>
+                <path d="M12 14h.01"></path>
+                <path d="M16 14h.01"></path>
+              </svg>
+              <span data-i18n="appointments.badge">Agenda Integrada</span>
+            </span>
+            <h3 id="appointments-heading" data-i18n="appointments.title">
+              Cada Cita en Su Lugar, Sin Dobles Reservas
+            </h3>
+            <p data-i18n="appointments.description">
+              Agenda citas para cualquier barbero en bloques de 30 minutos y
+              deja que el sistema bloquee los conflictos de horario antes de que
+              ocurran. El administrador ve un resumen del día con el total de
+              citas por barbero y puede entrar al detalle de cada uno. Los
+              barberos gestionan su propia agenda cuando les das permiso; el
+              resto solo consulta.
+            </p>
+            <ul class="check-list">
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span data-i18n="appointments.bullets.0"
+                  >Bloques de 30 minutos con detección automática de conflictos
+                  de horario</span
+                >
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span data-i18n="appointments.bullets.1"
+                  >Permiso de agendamiento por barbero: el administrador siempre
+                  puede, cada barbero según lo habilites</span
+                >
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span data-i18n="appointments.bullets.2"
+                  >Resumen diario por barbero con acceso al detalle de cada
+                  cita</span
+                >
+              </li>
+              <li>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span data-i18n="appointments.bullets.3"
+                  >Cada cita guarda cliente, servicio, hora de inicio y fin, y
+                  local</span
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="feature__media">
+            <div class="card">
+              <img
+                src="images/design-mode/appointments.png"
+                width="1280"
+                height="800"
+                loading="lazy"
+                alt="Pantalla de citas de la barbería mostrando el detalle de un barbero con dos citas del día, cada una con nombre del cliente, rango de hora, duración y servicio"
+                data-i18n-attr="alt:appointments.imageAlt"
+              />
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -720,6 +876,61 @@
       </div>
     </section>
 
+    <!-- How to get started -->
+    <section class="how container" aria-labelledby="how-heading">
+      <div class="section-heading">
+        <h2 id="how-heading" data-i18n="how.heading">Cómo Empezar</h2>
+        <p data-i18n="how.subheading">
+          De registro a barbería en operación, sin tarjeta de crédito
+        </p>
+      </div>
+
+      <ol class="how__steps">
+        <li class="how__step">
+          <span class="how__num" aria-hidden="true">1</span>
+          <h3 data-i18n="how.steps.0.title">Regístrate</h3>
+          <p data-i18n="how.steps.0.description">
+            Crea la cuenta de tu barbería, agrega tus datos y elige el plan
+            Básico o Profesional.
+          </p>
+        </li>
+        <li class="how__step">
+          <span class="how__num" aria-hidden="true">2</span>
+          <h3 data-i18n="how.steps.1.title">Paga por SINPE Móvil</h3>
+          <p data-i18n="how.steps.1.description">
+            Transfiere el monto del plan al número que te indicamos y escribe el
+            código de referencia en el detalle de la transferencia.
+          </p>
+        </li>
+        <li class="how__step">
+          <span class="how__num" aria-hidden="true">3</span>
+          <h3 data-i18n="how.steps.2.title">Sube tu comprobante</h3>
+          <p data-i18n="how.steps.2.description">
+            Adjunta la imagen del comprobante de SINPE desde la misma pantalla.
+            Nada de tarjetas ni formularios largos.
+          </p>
+        </li>
+        <li class="how__step">
+          <span class="how__num" aria-hidden="true">4</span>
+          <h3 data-i18n="how.steps.3.title">Empieza a usar el sistema</h3>
+          <p data-i18n="how.steps.3.description">
+            Revisamos el comprobante y activamos tu cuenta en pocas horas. Te
+            avisamos por correo cuando esté lista.
+          </p>
+        </li>
+      </ol>
+
+      <div class="how__actions">
+        <a
+          id="how-cta"
+          class="btn"
+          href="https://app.barbershop-studio.com/signup"
+          data-i18n="how.cta"
+          >Registrar Mi Barbería</a
+        >
+      </div>
+    </section>
+
     <!-- Customization -->
     <section
       class="customization container"
@@ -746,17 +957,16 @@
               <path d="M22 4h-4"></path>
               <circle cx="4" cy="20" r="2"></circle>
             </svg>
-            <span data-i18n="customization.badge">Personalización Total</span>
+            <span data-i18n="customization.badge">Tu Marca en la App</span>
           </span>
           <h2 id="customization-heading" data-i18n="customization.heading">
-            Tu Marca, Tu Identidad, Tu App
+            Tu Barbería, No un Software Genérico
           </h2>
           <p data-i18n="customization.description">
-            Cada barbería es única, y tu aplicación también debe serlo.
-            Personaliza completamente el sistema con tu marca, colores
-            corporativos, logo y nombre de tu negocio. Ofrece a tu equipo y
-            clientes una experiencia 100% alineada con tu identidad visual, sin
-            comprometer la funcionalidad profesional que necesitas.
+            El nombre y el logo de tu barbería aparecen en toda la aplicación:
+            en la barra de navegación, en la pantalla de inicio de sesión y en
+            los correos que envía el sistema. Tu equipo entra a «tu» plataforma,
+            no a una herramienta cualquiera.
           </p>
         </div>
 
@@ -779,40 +989,10 @@
                 <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
               </svg>
             </div>
-            <h3 data-i18n="customization.items.0.title">Logo Personalizado</h3>
+            <h3 data-i18n="customization.items.0.title">Logo de Tu Barbería</h3>
             <p data-i18n="customization.items.0.description">
-              Integra el logo de tu barbería en toda la aplicación para reforzar
-              tu identidad de marca
-            </p>
-          </div>
-          <div class="card customization-item">
-            <div class="customization-item__icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"
-                ></path>
-                <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
-                <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
-                <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
-                <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
-              </svg>
-            </div>
-            <h3 data-i18n="customization.items.1.title">
-              Colores Corporativos
-            </h3>
-            <p data-i18n="customization.items.1.description">
-              Adapta la paleta de colores completa para que coincida
-              perfectamente con tu branding
+              Tu logo en la barra de navegación y en la pantalla de acceso, en
+              cada dispositivo
             </p>
           </div>
           <div class="card customization-item">
@@ -833,39 +1013,12 @@
                 <path d="M9 20h6"></path>
               </svg>
             </div>
-            <h3 data-i18n="customization.items.2.title">
+            <h3 data-i18n="customization.items.1.title">
               Nombre de Tu Negocio
             </h3>
-            <p data-i18n="customization.items.2.description">
-              Personaliza el nombre de la aplicación con el de tu barbería en
-              todas las pantallas
-            </p>
-          </div>
-          <div class="card customization-item">
-            <div class="customization-item__icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                aria-hidden="true"
-              >
-                <path
-                  d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"
-                ></path>
-                <path d="M20 2v4"></path>
-                <path d="M22 4h-4"></path>
-                <circle cx="4" cy="20" r="2"></circle>
-              </svg>
-            </div>
-            <h3 data-i18n="customization.items.3.title">Elementos Visuales</h3>
-            <p data-i18n="customization.items.3.description">
-              Ajusta tipografías, iconos y otros detalles visuales según tus
-              preferencias
+            <p data-i18n="customization.items.1.description">
+              El nombre de tu barbería reemplaza al del sistema en toda la app y
+              en los correos
             </p>
           </div>
         </div>
@@ -874,13 +1027,12 @@
           <div class="white-label__grid">
             <div class="white-label__copy">
               <h3 data-i18n="customization.whiteLabel.title">
-                Solución White-Label Completa
+                Tu Identidad en Cada Pantalla
               </h3>
               <p data-i18n="customization.whiteLabel.description">
-                No es solo un software genérico. Es TU plataforma de gestión con
-                tu identidad visual completa. Perfecto para barberías que
-                quieren proyectar profesionalismo y coherencia de marca en cada
-                interacción con su equipo.
+                No es un software genérico con el nombre de otra empresa. Es la
+                plataforma de gestión de tu barbería, con tu nombre y tu logo,
+                para tu equipo.
               </p>
               <ul class="check-list">
                 <li>
@@ -898,7 +1050,8 @@
                     <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span data-i18n="customization.whiteLabel.bullets.0"
-                    >Personalización completa sin costos adicionales</span
+                    >El logo de tu barbería en la navegación y en la pantalla de
+                    acceso</span
                   >
                 </li>
                 <li>
@@ -916,7 +1069,8 @@
                     <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span data-i18n="customization.whiteLabel.bullets.1"
-                    >Implementación de tu branding en menos de 24 horas</span
+                    >El nombre de tu negocio en toda la aplicación y en los
+                    correos del sistema</span
                   >
                 </li>
                 <li>
@@ -934,7 +1088,7 @@
                     <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span data-i18n="customization.whiteLabel.bullets.2"
-                    >Actualizaciones de diseño cuando lo necesites</span
+                    >Incluido en ambos planes, sin costo adicional</span
                   >
                 </li>
               </ul>
@@ -988,19 +1142,7 @@
                 <p
                   data-i18n="customization.whiteLabel.logoPlaceholderDescription"
                 >
-                  Visualiza tu marca en cada pantalla de la aplicación
-                </p>
-                <div class="white-label__swatches">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <p
-                  class="white-label__caption"
-                  data-i18n="customization.whiteLabel.colorsCaption"
-                >
-                  Tus colores corporativos
+                  Así se ve tu marca en la barra de navegación de la app
                 </p>
               </div>
             </div>
@@ -1037,8 +1179,9 @@
               <li data-i18n="pricing.basico.features.0">1 ubicación</li>
               <li data-i18n="pricing.basico.features.1">Hasta 3 usuarios</li>
               <li data-i18n="pricing.basico.features.2">
-                Gestión de servicios y reportes
+                Registro de servicios y reportes por barbero
               </li>
+              <li data-i18n="pricing.basico.features.3">Agenda de citas</li>
             </ul>
             <a
               id="pricing-basico-cta"
@@ -1077,7 +1220,10 @@
                 Usuarios ilimitados
               </li>
               <li data-i18n="pricing.profesional.features.2">
-                Gestión de servicios y reportes
+                Registro de servicios y reportes por barbero
+              </li>
+              <li data-i18n="pricing.profesional.features.3">
+                Agenda de citas
               </li>
             </ul>
             <a
@@ -1096,17 +1242,90 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq container" aria-labelledby="faq-heading">
+      <div class="section-heading">
+        <h2 id="faq-heading" data-i18n="faq.heading">Preguntas Frecuentes</h2>
+        <p data-i18n="faq.subheading">
+          Lo que suelen preguntar las barberías antes de registrarse
+        </p>
+      </div>
+
+      <div class="faq__list">
+        <details>
+          <summary data-i18n="faq.items.0.q">
+            ¿Cómo pago la suscripción?
+          </summary>
+          <div data-i18n="faq.items.0.a">
+            El pago es manual por SINPE Móvil. Al registrarte te damos un número
+            y un código de referencia; haces la transferencia, subes el
+            comprobante y listo. No se necesita tarjeta de crédito.
+          </div>
+        </details>
+        <details>
+          <summary data-i18n="faq.items.1.q">
+            ¿Cuánto tarda en activarse mi cuenta?
+          </summary>
+          <div data-i18n="faq.items.1.a">
+            Revisamos el comprobante de SINPE y activamos la cuenta en pocas
+            horas. Te avisamos por correo cuando esté lista. Si algo falta en el
+            comprobante, te escribimos con el motivo para que lo vuelvas a
+            subir.
+          </div>
+        </details>
+        <details>
+          <summary data-i18n="faq.items.2.q">¿Qué incluye cada plan?</summary>
+          <div data-i18n="faq.items.2.a">
+            El plan Básico cubre 1 ubicación y hasta 3 usuarios. El plan
+            Profesional permite ubicaciones y usuarios ilimitados. Ambos
+            incluyen el registro de servicios, la agenda de citas y los reportes
+            por barbero.
+          </div>
+        </details>
+        <details>
+          <summary data-i18n="faq.items.3.q">
+            ¿Quién puede agendar citas?
+          </summary>
+          <div data-i18n="faq.items.3.a">
+            El administrador siempre puede agendar. Cada barbero puede gestionar
+            su propia agenda solo si le activas el permiso; los demás únicamente
+            consultan las citas del día.
+          </div>
+        </details>
+        <details>
+          <summary data-i18n="faq.items.4.q">
+            ¿Qué pasa cuando termina el período pagado?
+          </summary>
+          <div data-i18n="faq.items.4.a">
+            La cuenta pasa a «renovación pendiente» y el acceso queda en pausa
+            hasta que renueves. Escríbenos para coordinar el pago del siguiente
+            período y reactivarla.
+          </div>
+        </details>
+        <details>
+          <summary data-i18n="faq.items.5.q">
+            ¿Puedo poner la marca de mi barbería?
+          </summary>
+          <div data-i18n="faq.items.5.a">
+            Sí. El nombre y el logo de tu barbería aparecen en la navegación, en
+            la pantalla de acceso y en los correos del sistema, en ambos planes
+            y sin costo adicional.
+          </div>
+        </details>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="contact" aria-labelledby="contact-heading">
       <div class="container">
         <div class="contact__inner">
           <div class="section-heading">
             <h2 id="contact-heading" data-i18n="contact.heading">
-              ¿Listo para Transformar tu Barbería?
+              ¿Tienes Preguntas Antes de Registrarte?
             </h2>
             <p data-i18n="contact.description">
-              Contáctanos hoy mismo y descubre cómo Studio Barbershop Pro puede
-              revolucionar las operaciones de tu negocio
+              Escríbenos por WhatsApp o correo y te ayudamos a elegir el plan y
+              a poner tu barbería en marcha
             </p>
           </div>
 
@@ -1231,7 +1450,7 @@
             >
           </p>
           <p data-i18n="footer.copyright">
-            © 2025 Studio Barbershop Pro. Sistema de gestión para barberías.
+            © 2026 Studio Barbershop Pro. Sistema de gestión para barberías.
             Todos los derechos reservados.
           </p>
         </div>

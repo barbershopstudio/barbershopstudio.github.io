@@ -121,6 +121,16 @@ button {
   background: color-mix(in oklch, var(--primary) 90%, transparent);
 }
 
+.btn--ghost {
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn--ghost:hover {
+  background: color-mix(in oklch, var(--foreground) 8%, transparent);
+}
+
 @media (min-width: 640px) {
   .btn {
     font-size: 1.125rem;

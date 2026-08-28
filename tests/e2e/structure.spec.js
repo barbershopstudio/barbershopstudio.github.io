@@ -5,8 +5,12 @@ test('renders every landmark section from the original app', async ({
 }) => {
   await page.goto('/');
   await expect(page.locator('#features-heading')).toBeVisible();
+  await expect(page.locator('#appointments-heading')).toBeVisible();
   await expect(page.locator('#benefits-heading')).toBeVisible();
+  await expect(page.locator('#how-heading')).toBeVisible();
   await expect(page.locator('#customization-heading')).toBeVisible();
+  await expect(page.locator('#pricing-heading')).toBeVisible();
+  await expect(page.locator('#faq-heading')).toBeVisible();
   await expect(page.locator('#contact-heading')).toBeVisible();
 });
 
@@ -34,4 +38,13 @@ test('structured data is present and parses as JSON-LD', async ({ page }) => {
   const data = JSON.parse(json);
   expect(data['@type']).toBe('SoftwareApplication');
   expect(data.name).toBe('Studio Barbershop Pro');
+});
+
+test('structured data carries no fabricated aggregateRating', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const json = await page.locator('#structured-data').textContent();
+  const data = JSON.parse(json);
+  expect(data.aggregateRating).toBeUndefined();
 });

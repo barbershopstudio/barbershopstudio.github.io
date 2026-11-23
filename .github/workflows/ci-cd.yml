@@ -137,9 +137,12 @@ jobs:
     needs: [quality-checks, test, security]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
 
+    env:
+      PAGES_ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url || steps.deployment_retry.outputs.page_url }}
 
     steps:
       - name: Checkout code
@@ -159,7 +162,26 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: dist
+          name: ${{ env.PAGES_ARTIFACT_NAME }}
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        continue-on-error: true
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
+
+      - name: Wait for artifact visibility
+        if: steps.deployment.outcome == 'failure' && steps.deployment.outputs.page_url == ''
+        run: sleep 10
+
+      - name: Retry deployment
+        id: deployment_retry
+        if: steps.deployment.outcome == 'failure' && steps.deployment.outputs.page_url == ''
+        uses: actions/deploy-pages@v5
+        with:
+          artifact_name: ${{ env.PAGES_ARTIFACT_NAME }}
+
+      - name: Report deployment failure
+        if: steps.deployment.outcome == 'failure' && steps.deployment.outputs.page_url != ''
+        run: exit 1
